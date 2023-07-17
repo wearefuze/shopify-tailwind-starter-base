@@ -1,3 +1,4 @@
+{%- comment -%}
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -114,6 +115,7 @@
   }
 {%- endstyle -%}
 
+
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -148,6 +150,7 @@
     endif
   endfor
 -%}
+
 
 <{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   {%- liquid
@@ -345,6 +348,7 @@
       </a>
     </div>
   </header>
+
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
 {%- if settings.cart_type == "notification" -%}
@@ -486,9 +490,250 @@
   }
 </script>
 
+
+
+{%- endcomment -%}
+
+
+
+
+<script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+{%- comment -%}
+{%- if settings.cart_type == "drawer" -%}
+  <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+{%- endcomment -%}
+
+<svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+	<symbol id="icon-search" viewbox="0 0 18 19" fill="none">
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 112.85 3.5a5.784 5.784 0 018.18 8.18zm.26 1.12a6.78 6.78 0 11.72-.7l5.4 5.4a.5.5 0 11-.71.7l-5.41-5.4z" fill="currentColor"/>
+	</symbol>
+
+	<symbol id="icon-reset" class="icon icon-close"  fill="none" viewBox="0 0 18 18" stroke="currentColor">
+		<circle r="8.5" cy="9" cx="9" stroke-opacity="0.2"/>
+		<path d="M6.82972 6.82915L1.17193 1.17097" stroke-linecap="round" stroke-linejoin="round" transform="translate(5 5)"/>
+		<path d="M1.22896 6.88502L6.77288 1.11523" stroke-linecap="round" stroke-linejoin="round" transform="translate(5 5)"/>
+	</symbol>
+
+	<symbol id="icon-close" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+		<path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
+	</symbol>
+</svg>
+
+{%- liquid
+	for block in section.blocks
+		if block.type == '@app'
+			assign has_app_block = true
+		endif
+	endfor
+-%}
+
+
+<div class="twcss-bg-brand-darkgrey" x-data="{ showMenu: false, showClearance: false }">
+	<div class="twcss-container lg:twcss-flex twcss-justify-between twcss-items-center">
+		<div class="twcss-py-4 twcss-hidden lg:twcss-block">
+			<a href="{{ shop.url }}">
+				<img src="{{ settings.logo | img_url: '600x' }}">
+			</a>
+		</div>
+		<div>
+			<div class="twcss-flex twcss-justify-end twcss-items-center twcss-gap-8">
+				<div>
+					<form class="search" action="/search">
+						<div class="twcss-relative twcss-text-brand-blue focus-within:twcss-text-brand-blue">
+            <span class="twcss-absolute twcss-inset-y-0 twcss-left-0 twcss-flex twcss-items-center twcss-pl-2">
+              <button type="submit" class="twcss-p-1 focus:twcss-outline-none focus:twcss-shadow-outline">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="twcss-w-6 twcss-h-6">
+                  <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z">
+                  </path>
+                </svg>
+              </button>
+            </span>
+							<input type="search" name="q" class="twcss-py-2 twcss-text-sm twcss-text-white twcss-bg-brand-grey twcss-rounded-md twcss-pl-10 focus:twcss-outline-none focus:twcss-bg-brand-grey focus:twcss-text-core-white" placeholder="Search for products" autocomplete="off">
+						</div>
+					</form>
+				</div>
+				<div>
+					<a class="twcss-text-core-white twcss-py-4 hover:twcss-underline twcss-transition-all twcss-duration-300" href="/pages/contact">Contact us</a>
+				</div>
+				<div
+						x-data="{ cart_count: {{ cart.item_count }} }"
+						@cart-count-updated.window="cart_count = $event.detail"
+						class="relative"
+				>
+					<a href="/cart">
+						<button
+								type="button"
+								title="Cart button"
+								class="header__icon text-center w-12 h-12 text-white"
+						>
+							{%- liquid
+								if cart == empty
+									render 'icon-cart-empty'
+								else
+									render 'icon-cart'
+								endif
+							-%}
+							<span class="sr-only">{{ 'templates.cart.cart' |  t }}</span>
+							<span x-cloak x-show="cart_count > 0" x-text="cart_count" class="cart__count min-w-[22px] text-sm min-h-[22px] absolute grid place-content-center rounded-full top-0 right-3 text-white bg-brand-red"> {{ cart.item_count }} </span>
+						</button>
+					</a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<nav class="container text-core-white h-auto">
+		<div class="block lg:hidden container justify-end">
+			<button @click="showMenu = !showMenu" class="inline-flex items-center p-2 ml-3 text-sm text-brand-orange rounded-lg lg:hidden" aria-controls="navbar-solid-bg" aria-expanded="false">
+				<div id="nav-icon" :class="showMenu == false ? '' : 'open'" class="">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</button>
+		</div>
+
+		<div class="twcss-hidden lg:twcss-flex twcss-container twcss-items-center twcss-justify-between">
+			<div class="" id="navbar-solid-bg">
+				<div class="twcss-flex twcss-bg-brand-darkgrey">
+
+					{% for link in linklists.main-menu.links %}
+
+						{%- if link.links != blank -%}
+							<details id="Details-menu-drawer-menu-item-{{ forloop.index }}" class="relative z-10">
+								<summary class="twcss-relative twcss-px-4 twcss-py-4 twcss-top-0 twcss-group twcss-overflow-hidden twcss-font-medium twcss-bg-transparent hover:twcss-bg-brand-yellow {% if link.child_active %} bg-brand-yellow{% endif %}">
+									<span class="twcss-relative twcss-text-core-white group-hover:twcss-text-core-black twcss-uppercase">{{ link.title | escape }}</span>
+								</summary>
+								<div id="link-{{ link.handle | escape }}" class="twcss-absolute twcss-top-13 menu-drawer__submenu has-submenu gradient motion-reduce twcss-bg-brand-darkgrey twcss-z-50" tabindex="-1">
+									<div class="menu-drawer__inner-submenu">
+										<ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+											<li>
+												<a href="{{ link.url }}" {% if link.current %} aria-current="page"{% endif %}>
+													<div class="twcss-relative twcss-px-4 twcss-py-4 twcss-top-0 twcss-group twcss-overflow-hidden twcss-font-medium twcss-bg-transparent hover:twcss-bg-brand-yellow{% if link.current %} menu-drawer__menu-item--active{% endif %}">
+														<span class="twcss-relative twcss-text-core-white group-hover:twcss-text-core-black twcss-uppercase">All {{ link.title | escape }}</span>
+													</div>
+												</a>
+											</li>
+											{%- for childlink in link.links -%}
+												<li>
+													{%- if childlink.links == blank -%}
+														<a href="{{ childlink.url }}" {% if childlink.current %} aria-current="page"{% endif %}>
+															<div class="twcss-relative twcss-px-4 twcss-py-4 twcss-top-0 twcss-group twcss-overflow-hidden twcss-font-medium twcss-bg-transparent hover:twcss-bg-brand-yellow{% if childlink.current %} menu-drawer__menu-item--active{% endif %}">
+																<span class="twcss-relative twcss-text-core-white group-hover:twcss-text-core-black twcss-uppercase">{{ childlink.title | escape }}</span>
+															</div>
+														</a>
+													{%- else -%}
+														<details id="Details-menu-drawer-submenu-{{ forloop.index }}">
+															<summary class="menu-drawer__menu-item link link--text list-menu__item focus-inset">
+																{{ childlink.title | escape }}
+															</summary>
+															<div id="childlink-{{ childlink.handle | escape }}" class="menu-drawer__submenu has-submenu gradient motion-reduce">
+																<button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
+																	{% render 'icon-arrow' %}
+																	{{ childlink.title | escape }}
+																</button>
+																<ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+																	{%- for grandchildlink in childlink.links -%}
+																		<li>
+																			<a href="{{ grandchildlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
+																				{{ grandchildlink.title | escape }}
+																			</a>
+																		</li>
+																	{%- endfor -%}
+																</ul>
+															</div>
+														</details>
+													{%- endif -%}
+												</li>
+											{%- endfor -%}
+										</ul>
+									</div>
+								</div>
+							</details>
+						{%- else -%}
+							<a href="{{ link.url }}">
+								<div class="twcss-relative twcss-px-4 twcss-py-4 twcss-top-0 twcss-group twcss-overflow-hidden twcss-font-medium twcss-bg-transparent hover:twcss-bg-brand-yellow {% if link.current %} menu-drawer__menu-item--active{% endif %}" {% if link.current %} aria-current="page"{% endif %}>
+									<span class="twcss-relative twcss-text-core-white group-hover:twcss-text-core-black twcss-uppercase">{{ link.title | escape }}</span>
+								</div>
+							</a>
+						{%- endif -%}
+
+					{%endfor%}
+				</div>
+			</div>
+			{% if section.settings.show-clearance == true %}
+				<div class="twcss-relative twcss-px-4 twcss-py-4 twcss-top-0 twcss-group twcss-overflow-hidden twcss-font-medium twcss-bg-brand-red hover:twcss-cursor-pointer hover:twcss-brightness-125" @click="showClearance = !showClearance">
+					<span class="twcss-relative twcss-text-core-white twcss-uppercase">Clearance</span>
+				</div>
+			{% endif %}
+		</div>
+		<div id="mobile-menu" class="twcss-inset-0 twcss-w-full twcss-mx-auto twcss-top-0 twcss-right-0 twcss-flex twcss-justify-end twcss-duration-300 twcss-transform twcss-fixed twcss-transition twcss-overflow-hidden -twcss-translate-y-full twcss-ease-out" :class="{'twcss-translate-y-40 twcss-ease-in twcss-z-50':showMenu === true, '-twcss-translate-y-full twcss-ease-out':showMenu === false}">
+			<div class="twcss-w-full">
+				<div class="twcss-flex twcss-flex-col twcss-divide-y twcss-divide-brand-light-gray twcss-bg-brand-darkgrey ">
+					{% for link in section.settings.menu.links %}
+
+						{% if link.url == '/pages/contact'  %}
+							<div class="twcss-pt-2">
+								<a href="{{ link.url }}" class="twcss-block twcss-py-2 twcss-px-4 twcss-text-brand-midnight hover:twcss-text-white twcss-uppercase hover:twcss-bg-brand-orange twcss-border-2 twcss-border-brand-orange twcss-border-solid twcss-rounded-full twcss-transition-all twcss-duration-300{% if link.current %}twcss-text-white twcss-bg-brand-orange{% endif %}">{{ link.title }}</a>
+							</div>
+						{% else %}
+
+							<div class="twcss-relative inactive">
+								<a href="{{ link.url }}" class="twcss-px-5 twcss-py-4 twcss-top-0 twcss-group twcss-overflow-hidden twcss-font-medium twcss-bg-transparent twcss-text-brand-midnight twcss-inline-block">
+									<span class="twcss-absolute -twcss-top-1 twcss-left-0 twcss-flex twcss-w-full twcss-h-0 twcss-mb-0 twcss-transition-all twcss-duration-300 twcss-ease-out twcss-transform twcss-translate-y-0 twcss-bg-brand-orange group-hover:twcss-h-full twcss-opacity-90 {%- if link.current  %}twcss-h-full{% endif %}"></span>
+									<span class="twcss-relative group-hover:twcss-text-white twcss-uppercase">{{ link.title }}</span>
+								</a>
+							</div>
+						{% endif %}
+					{%endfor%}
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div x-cloak x-show="showClearance" x-transition.duration.300ms class="twcss-bg-brand-red">
+		<div class="twcss-container twcss-flex twcss-justify-center">
+			<a class="twcss-text-core-white twcss-py-4 hover:twcss-underline twcss-transition-all twcss-duration-300" href="{{ section.settings.clearance-banner-link }}">{{ section.settings.clearance-banner-text }}</a>
+		</div>
+	</div>
+</div>
+
+
+
+{%- if settings.cart_type == "notification" -%}
+	{%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
+{%- endif -%}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if settings.logo %}
+      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
+    {% endif %}
+    "sameAs": [
+      {{ settings.social_twitter_link | json }},
+      {{ settings.social_facebook_link | json }},
+      {{ settings.social_pinterest_link | json }},
+      {{ settings.social_instagram_link | json }},
+      {{ settings.social_tiktok_link | json }},
+      {{ settings.social_tumblr_link | json }},
+      {{ settings.social_snapchat_link | json }},
+      {{ settings.social_youtube_link | json }},
+      {{ settings.social_vimeo_link | json }}
+    ],
+    "url": {{ request.origin | append: page.url | json }}
+  }
+</script>
+
 {%- if request.page_type == 'index' -%}
-  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
-  <script type="application/ld+json">
+	{% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
+	<script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "WebSite",
@@ -510,182 +755,26 @@
   "max_blocks": 3,
   "settings": [
     {
-      "type": "select",
-      "id": "logo_position",
-      "options": [
-        {
-          "value": "top-left",
-          "label": "t:sections.header.settings.logo_position.options__2.label"
-        },
-        {
-          "value": "top-center",
-          "label": "t:sections.header.settings.logo_position.options__3.label"
-        },
-        {
-          "value": "middle-left",
-          "label": "t:sections.header.settings.logo_position.options__1.label"
-        },
-        {
-          "value": "middle-center",
-          "label": "t:sections.header.settings.logo_position.options__4.label"
-        }
-      ],
-      "default": "middle-left",
-      "label": "t:sections.header.settings.logo_position.label",
-      "info": "t:sections.header.settings.logo_help.content"
-    },
-    {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
     },
     {
-      "type": "select",
-      "id": "menu_type_desktop",
-      "options": [
-        {
-          "value": "dropdown",
-          "label": "t:sections.header.settings.menu_type_desktop.options__1.label"
-        },
-        {
-          "value": "mega",
-          "label": "t:sections.header.settings.menu_type_desktop.options__2.label"
-        },
-        {
-          "value": "drawer",
-          "label": "t:sections.header.settings.menu_type_desktop.options__3.label"
-        }
-      ],
-      "default": "dropdown",
-      "label": "t:sections.header.settings.menu_type_desktop.label",
-      "info": "t:sections.header.settings.menu_type_desktop.info"
-    },
-    {
-      "type": "select",
-      "id": "sticky_header_type",
-      "options": [
-        {
-          "value": "none",
-          "label": "t:sections.header.settings.sticky_header_type.options__1.label"
-        },
-        {
-          "value": "on-scroll-up",
-          "label": "t:sections.header.settings.sticky_header_type.options__2.label"
-        },
-        {
-          "value": "always",
-          "label": "t:sections.header.settings.sticky_header_type.options__3.label"
-        },
-        {
-          "value": "reduce-logo-size",
-          "label": "t:sections.header.settings.sticky_header_type.options__4.label"
-        }
-      ],
-      "default": "on-scroll-up",
-      "label": "t:sections.header.settings.sticky_header_type.label"
-    },
-    {
       "type": "checkbox",
-      "id": "show_line_separator",
-      "default": true,
-      "label": "t:sections.header.settings.show_line_separator.label"
+      "id": "show-clearance",
+      "default": false,
+      "label": "Show Clearance Banner"
     },
     {
-      "type": "header",
-      "content": "t:sections.header.settings.header__1.content"
+      "type": "text",
+      "id": "clearance-banner-text",
+      "label": "Clearance Banner Text"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "background-1"
-    },
-      {
-      "type": "color_scheme",
-      "id": "menu_color_scheme",
-      "label": "t:sections.header.settings.menu_color_scheme.label",
-      "default": "background-1"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__3.content",
-      "info": "t:sections.header.settings.header__4.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_country_selector",
-      "default": true,
-      "label": "t:sections.header.settings.enable_country_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__5.content",
-      "info": "t:sections.header.settings.header__6.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_language_selector",
-      "default": true,
-      "label": "t:sections.header.settings.enable_language_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.mobile_layout.content"
-    },
-    {
-      "type": "select",
-      "id": "mobile_logo_position",
-      "options": [
-        {
-          "value": "center",
-          "label": "t:sections.header.settings.mobile_logo_position.options__1.label"
-        },
-        {
-          "value": "left",
-          "label": "t:sections.header.settings.mobile_logo_position.options__2.label"
-        }
-      ],
-      "default": "center",
-      "label": "t:sections.header.settings.mobile_logo_position.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.spacing"
-    },
-    {
-      "type": "range",
-      "id": "margin_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.header.settings.margin_bottom.label",
-      "default": 0
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 36,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 20
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 36,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 20
+      "type": "url",
+      "id": "clearance-banner-link",
+      "label": "Clearance Link"
     }
   ],
   "blocks": [
@@ -695,3 +784,4 @@
   ]
 }
 {% endschema %}
+

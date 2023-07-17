@@ -16,9 +16,22 @@ module.exports = {
       x2lg: '1920px',
       pageMaxWidth: '1440px',
     },
+    container: {
+      center: true,
+    },
     extend: {
       fontFamily: {
-        heading: 'var(--font-heading-family)',
+        redhat: ['Red Hat Display'],
+      },
+      colors: {
+        'core-white': '#ffffff',
+        'core-black': '#000000',
+        'brand-yellow': '#e2ad3b',
+        'brand-grey': '#666768',
+        'brand-midgrey': '#424242',
+        'brand-darkgrey': '#3d3d3d',
+        'brand-red': '#ce5756',
+        'brand-blue': '#a0b7c4',
       },
     },
     color: {
