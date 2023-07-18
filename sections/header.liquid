@@ -586,9 +586,9 @@
 			</div>
 		</div>
 	</div>
-	<nav class="container text-core-white h-auto">
-		<div class="block lg:hidden container justify-end">
-			<button @click="showMenu = !showMenu" class="inline-flex items-center p-2 ml-3 text-sm text-brand-orange rounded-lg lg:hidden" aria-controls="navbar-solid-bg" aria-expanded="false">
+	<nav class="twcss-container twcss-text-core-white twcss-h-auto">
+		<div class="twcss-block lg:twcss-hidden twcss-container twcss-justify-end">
+			<button @click="showMenu = !showMenu" class="twcss-inline-flex twcss-items-center twcss-p-2 twcss-ml-3 twcss-text-smtwcss- text-brand-orange twcss-rounded-lg lg:twcss-hidden" aria-controls="navbar-solid-bg" aria-expanded="false">
 				<div id="nav-icon" :class="showMenu == false ? '' : 'open'" class="">
 					<span></span>
 					<span></span>
@@ -611,7 +611,7 @@
 								</summary>
 								<div id="link-{{ link.handle | escape }}" class="twcss-absolute twcss-top-13 menu-drawer__submenu has-submenu gradient motion-reduce twcss-bg-brand-darkgrey twcss-z-50" tabindex="-1">
 									<div class="menu-drawer__inner-submenu">
-										<ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+										<ul class="menu-drawer__menu list-menu twcss-bg-brand-darkgrey" role="list" tabindex="-1">
 											<li>
 												<a href="{{ link.url }}" {% if link.current %} aria-current="page"{% endif %}>
 													<div class="twcss-relative twcss-px-4 twcss-py-4 twcss-top-0 twcss-group twcss-overflow-hidden twcss-font-medium twcss-bg-transparent hover:twcss-bg-brand-yellow{% if link.current %} menu-drawer__menu-item--active{% endif %}">
