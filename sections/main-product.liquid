@@ -56,10 +56,10 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
 
   <div class="product product--{{ section.settings.gallery_layout }} twcss-grid twcss-grid-cols-1 lg:twcss-grid-cols-2 twcss-gap-8">
-    <div class=" product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
+    <div class=" product__media-wrapper">
       {% render 'product-media-gallery', variant_images: variant_images %}
     </div>
-    <div class="product__info-wrapper {% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <div class="product__info-wrapper scroll-trigger animate--slide-in">
       <product-info
         id="ProductInfo-{{ section.id }}"
         data-section="{{ section.id }}"
@@ -80,8 +80,8 @@
                 {{- block.settings.text -}}
               </p>
             {%- when 'title' -%}
-              <div class="product__title" {{ block.shopify_attributes }}>
-                <h1>{{ product.title | escape }}</h1>
+              <div class="product__title">
+                <h1 class="twcss-text-3xl twcss-font-bold">{{ product.title | escape }}</h1>
                 <a href="{{ product.url }}" class="product__title">
                   <h2 class="h1">
                     {{ product.title | escape }}
@@ -98,7 +98,7 @@
                 -%}
               </div>
               {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
-                <div class="product__tax caption rte">
+                <div class="product__tax rte !twcss-text-base">
                   {%- if cart.taxes_included -%}
                     {{ 'products.product.include_taxes' | t }}
                   {%- endif -%}
@@ -179,16 +179,17 @@
             {%- when 'custom_liquid' -%}
               {{ block.settings.custom_liquid }}
             {%- when 'collapsible_tab' -%}
+            {%- comment -%}
               <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                 <details id="Details-{{ block.id }}-{{ section.id }}">
                   <summary>
-                    <div class="summary__title">
+                    <div class="summary__title twcss-items-center twcss-gap-4">
                       {% render 'icon-accordion', icon: block.settings.icon %}
-                      <h2 class="h4 accordion__title inline-richtext">
+                      <h2 class="h4 accordion__titlexx inline-richtext">
                         {{ block.settings.heading | default: block.settings.page.title }}
                       </h2>
                     </div>
-                    {% render 'icon-caret' %}
+                    {% render 'icon-caret', class: 'twcss-h-4 twcss-w-4' %}
                   </summary>
                   <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                     {{ block.settings.content }}
@@ -196,6 +197,7 @@
                   </div>
                 </details>
               </div>
+            {%- endcomment -%}
             {%- when 'quantity_selector' -%}
               <div
                 id="Quantity-Form-{{ section.id }}"

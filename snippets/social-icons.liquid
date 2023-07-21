@@ -1,72 +1,72 @@
-<div class="flex gap-4 justify-start items-center">
+<div class="twcss-flex twcss-gap-4 twcss-justify-start twcss-items-center">
   {%- if settings.social_facebook_link != blank -%}
-    <div class="w-12 h-12 flex items-center justify-center">
-      <a href="{{ settings.social_facebook_link }}" class="text-core-black">
-        {%- render 'icon-facebook', classes:'w-8 h-8' -%}
-        <span class="sr-only">{{ 'general.social.links.facebook' | t }}</span>
+    <div class="twcss-w-12 twcss-h-12 twcss-flex twcss-items-center twcss-justify-center">
+      <a href="{{ settings.social_facebook_link }}" class="twcss-text-core-black">
+        {%- render 'icon-facebook' -%}
+        <span class="twcss-sr-only">{{ 'general.social.links.facebook' | t }}</span>
       </a>
     </div>
   {%- endif -%}
   {%- if settings.social_instagram_link != blank -%}
-    <div class="w-12 h-12 flex items-center justify-center">
-      <a href="{{ settings.social_instagram_link }}" class="text-core-black">
-        {%- render 'icon-instagram', classes:'w-8 h-8' -%}
-        <span class="sr-only">{{ 'general.social.links.instagram' | t }}</span>
+    <div class="twcss-w-12 twcss-h-12 twcss-flex twcss-items-center twcss-justify-center">
+      <a href="{{ settings.social_instagram_link }}" class="twcss-text-core-black">
+        {%- render 'icon-instagram', classes: {'twcss-w-8', {'twcss-h-8'} -%}
+        <span class="twcss-sr-only">{{ 'general.social.links.instagram' | t }}</span>
       </a>
     </div>
   {%- endif -%}
   {%- if settings.social_youtube_link != blank -%}
-    <div class="w-12 h-12 flex items-center justify-center">
-      <a href="{{ settings.social_youtube_link }}" class="text-core-black">
-        {%- render 'icon-youtube', classes:'w-8 h-8' -%}
-        <span class="sr-only">{{ 'general.social.links.youtube' | t }}</span>
+    <div class="twcss-w-12 twcss-h-12 twcss-flex twcss-items-center twcss-justify-center">
+      <a href="{{ settings.social_youtube_link }}" class="twcss-text-core-black">
+        {%- render 'icon-youtube', classes:'twcss-w-8 twcss-h-8' -%}
+        <span class="twcss-sr-only">{{ 'general.social.links.youtube' | t }}</span>
       </a>
     </div>
   {%- endif -%}
   {%- if settings.social_tiktok_link != blank -%}
-    <div class="w-8 h-8">
-      <a href="{{ settings.social_tiktok_link }}" class="text-core-black">
-        {%- render 'icon-tiktok' -%}
-        <span class="sr-only">{{ 'general.social.links.tiktok' | t }}</span>
+    <div class="twcss-w-12 twcss-h-12 twcss-flex twcss-items-center twcss-justify-center">
+      <a href="{{ settings.social_tiktok_link }}" class="twcss-text-core-black">
+        {%- render 'icon-tiktok', classes:'twcss-w-8 twcss-h-8' -%}
+        <span class="twcss-sr-only">{{ 'general.social.links.tiktok' | t }}</span>
       </a>
     </div>
   {%- endif -%}
   {%- if settings.social_twitter_link != blank -%}
-    <div class="w-12 h-12 flex items-center justify-center">
-      <a href="{{ settings.social_twitter_link }}" class="text-core-black">
-        {%- render 'icon-twitter', classes:'w-8 h-8' -%}
-        <span class="sr-only">{{ 'general.social.links.twitter' | t }}</span>
+    <div class="twcss-w-12 twcss-h-12 twcss-flex twcss-items-center twcss-justify-center">
+      <a href="{{ settings.social_twitter_link }}" class="twcss-text-core-black">
+        {%- render 'icon-twitter', classes:'twcss-w-8 twcss-h-8' -%}
+        <span class="twcss-sr-only">{{ 'general.social.links.twitter' | t }}</span>
       </a>
     </div>
   {%- endif -%}
   {%- if settings.social_pinterest_link != blank -%}
-    <div class="w-8 h-8">
-      <a href="{{ settings.social_pinterest_link }}" class="text-core-black">
-        {%- render 'icon-pinterest' -%}
-        <span class="sr-only">{{ 'general.social.links.pinterest' | t }}</span>
+    <div class="twcss-w-12 twcss-h-12 twcss-flex twcss-items-center twcss-justify-center">
+      <a href="{{ settings.social_pinterest_link }}" class="twcss-text-core-black">
+        {%- render 'icon-pinterest', classes:'twcss-w-8 twcss-h-8' -%}
+        <span class=twcss-"sr-only">{{ 'general.social.links.pinterest' | t }}</span>
       </a>
     </div>
   {%- endif -%}
   {%- if settings.social_snapchat_link != blank -%}
-    <div class="w-8 h-8">
-      <a href="{{ settings.social_snapchat_link }}" class="text-core-black">
-        {%- render 'icon-snapchat' -%}
-        <span class="sr-only">{{ 'general.social.links.snapchat' | t }}</span>
+    <div class="twcss-w-12 twcss-h-12 twcss-flex twcss-items-center twcss-justify-center">
+      <a href="{{ settings.social_snapchat_link }}" class="twcss-text-core-black">
+        {%- render 'icon-snapchat', classes:'twcss-w-8 twcss-h-8' -%}
+        <span class="twcss-sr-only">{{ 'general.social.links.snapchat' | t }}</span>
       </a>
     </div>
   {%- endif -%}
   {%- if settings.social_tumblr_link != blank -%}
-    <div class="w-8 h-8">
-      <a href="{{ settings.social_tumblr_link }}" class="text-core-black">
-        {%- render 'icon-tumblr' -%}
-        <span class="sr-only">{{ 'general.social.links.tumblr' | t }}</span>
+    <div class="twcss-w-12 twcss-h-12 twcss-flex twcss-items-center twcss-justify-center">
+      <a href="{{ settings.social_tumblr_link }}" class="twcss-text-core-black">
+        {%- render 'icon-tumblr', classes:'twcss-w-8 twcss-h-8' -%}
+        <span class="twcss-sr-only">{{ 'general.social.links.tumblr' | t }}</span>
       </a>
     </div>
   {%- endif -%}
   {%- if settings.social_vimeo_link != blank -%}
-    <div class="w-8 h-8">
+    <div class="twcss-w-12 twcss-h-12 twcss-flex twcss-items-center twcss-justify-center">
       <a href="{{ settings.social_vimeo_link }}" class="text-core-black">
-        {%- render 'icon-vimeo' -%}
+        {%- render 'icon-vimeo', classes:'twcss-w-8 twcss-h-8' -%}
         <span class="sr-only">{{ 'general.social.links.vimeo' | t }}</span>
       </a>
     </div>

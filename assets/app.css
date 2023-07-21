@@ -560,12 +560,40 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: 4rem;
 }
 
+.twcss-top-4 {
+  top: 1rem;
+}
+
+.twcss-left-4 {
+  left: 1rem;
+}
+
 .twcss-z-50 {
   z-index: 50;
 }
 
 .twcss-col-span-1 {
   grid-column: span 1 / span 1;
+}
+
+.twcss-col-span-3 {
+  grid-column: span 3 / span 3;
+}
+
+.twcss-col-span-8 {
+  grid-column: span 8 / span 8;
+}
+
+.twcss-col-span-9 {
+  grid-column: span 9 / span 9;
+}
+
+.twcss-col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.twcss-col-span-10 {
+  grid-column: span 10 / span 10;
 }
 
 .twcss-mx-auto {
@@ -634,6 +662,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 0.5rem;
 }
 
+.twcss-h-12 {
+  height: 3rem;
+}
+
+.twcss-h-8 {
+  height: 2rem;
+}
+
+.\!twcss-h-8 {
+  height: 2rem !important;
+}
+
+.twcss-h-4 {
+  height: 1rem;
+}
+
 .twcss-w-6 {
   width: 1.5rem;
 }
@@ -660,6 +704,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .twcss-w-64 {
   width: 16rem;
+}
+
+.twcss-w-12 {
+  width: 3rem;
+}
+
+.twcss-w-8 {
+  width: 2rem;
 }
 
 .twcss-flex-1 {
@@ -691,6 +743,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .twcss-grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.twcss-grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .twcss-flex-row {
@@ -802,6 +858,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(160 183 196 / var(--tw-border-opacity));
 }
 
+.twcss-border-brand-darkgrey {
+  --tw-border-opacity: 1;
+  border-color: rgb(61 61 61 / var(--tw-border-opacity));
+}
+
 .twcss-bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -846,6 +907,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.twcss-bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
 .twcss-bg-cover {
   background-size: cover;
 }
@@ -874,6 +940,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .twcss-p-16 {
   padding: 4rem;
+}
+
+.\!twcss-p-0 {
+  padding: 0px !important;
 }
 
 .twcss-px-4 {
@@ -997,6 +1067,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.75rem;
 }
 
+.\!twcss-text-lg {
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
+}
+
+.\!twcss-text-base {
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+}
+
 .twcss-font-bold {
   font-weight: 700;
 }
@@ -1015,6 +1095,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .twcss-uppercase {
   text-transform: uppercase;
+}
+
+.twcss-tracking-normal {
+  letter-spacing: 0em;
+}
+
+.\!twcss-tracking-normal {
+  letter-spacing: 0em !important;
 }
 
 .twcss-text-white {
@@ -1045,6 +1133,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 .twcss-text-brand-grey {
   --tw-text-opacity: 1;
   color: rgb(102 103 104 / var(--tw-text-opacity));
+}
+
+.twcss-text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.twcss-text-brand-darkgrey {
+  --tw-text-opacity: 1;
+  color: rgb(61 61 61 / var(--tw-text-opacity));
+}
+
+.twcss-underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 
 .twcss-opacity-90 {
@@ -1266,6 +1369,10 @@ video {
 .twcss-group:hover .group-hover\:twcss-text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.twcss-group:hover .group-hover\:twcss-opacity-75 {
+  opacity: 0.75;
 }
 
 @media (prefers-color-scheme: dark) {
