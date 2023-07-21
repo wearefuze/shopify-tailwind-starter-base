@@ -1,0 +1,64 @@
+<section class="lg:twcss-hidden twcss-container twcss-flex twcss-flex-col twcss-divide-y twcss-justify-center twcss-divide-brand-grey twcss-py-4">
+	{% for block in section.blocks %}
+		<div class="twcss-text-sm twcss-text-brand-grey twcss-flex twcss-justify-start twcss-items-center twcss-gap-4 twcss-px-8">
+      <div class="twcss-py-4 twcss-text-brand-blue">{{ block.settings.usp_icon | img_tag }}</div>
+      <div>
+        <div class="twcss-font-bold">{{ block.settings.usp_title }}</div>
+        <div>{{ block.settings.usp_text }}</div>
+      </div>
+
+    </div>
+	{% endfor %}
+</section>
+
+<section class="twcss-hidden lg:twcss-flex twcss-container twcss-flex-row twcss-divide-x twcss-justify-center twcss-divide-brand-grey twcss-py-4">
+  {% for block in section.blocks %}
+    <div class="twcss-text-sm twcss-text-brand-grey twcss-flex twcss-justify-start twcss-justify-center twcss-items-center twcss-gap-4 twcss-px-8">
+      <div class="twcss-py-4 twcss-text-brand-blue">{{ block.settings.usp_icon | img_tag }}</div>
+      <div>
+        <div class="twcss-font-bold">{{ block.settings.usp_title }}</div>
+        <div>{{ block.settings.usp_text }}</div>
+      </div>
+
+    </div>
+  {% endfor %}
+</section>
+
+
+{% schema %}
+{
+  "name": "USPs Block",
+  "class": "usps_block",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner Image"
+    }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "name": "USP",
+      "type": "usp",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "usp_icon",
+          "label": "USP Icon"
+        },
+        {
+          "type": "text",
+          "id": "usp_title",
+          "label": "USP Title"
+        },
+				{
+          "type": "text",
+          "id": "usp_text",
+          "label": "USP Text"
+        }
+      ]
+    }
+	]
+}
+{% endschema %}
