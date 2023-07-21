@@ -1,210 +1,267 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "image_slider_banner": {
+      "type": "image-slider-banner",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "557dd097-9db1-4917-aa13-6cd37ff8885a": {
+          "type": "slide",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
+            "title_text": "Quality carpet and flooring in stock to take away today!",
+            "body_text": "Intense hatred of wine is called oenophobia. Oak imparts vanilla, toast, caramel and coffee. Some whites age better in stainless steel.",
+            "slide_link": "shopify:\/\/collections\/laminate-flooring",
+            "slide_link_text": "View Laminate Flooring"
           }
         },
-        "text": {
-          "type": "text",
+        "a88eaf6d-9cb5-46d7-8313-15fb9dfed3de": {
+          "type": "slide",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
+            "title_text": "Quality carpet and flooring in stock to take away today!",
+            "body_text": "Some wines are made from rotting grapes: Botrytis, or noble rot, makes good dessert wine.",
+            "slide_link": "shopify:\/\/collections\/accessories",
+            "slide_link_text": "View Accessories"
           }
         },
-        "button": {
-          "type": "buttons",
+        "a880063c-c281-420c-af45-81d321b36592": {
+          "type": "slide",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "title_text": "Quality carpet and flooring in stock to take away today!",
+            "body_text": "Pursing your lips and inhaling some air while the wine is still on your palate is also a nice way to spread the more complex flavors through your sinuses.",
+            "slide_link": "shopify:\/\/collections\/carpet",
+            "slide_link_text": "View Carpet"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
+        "557dd097-9db1-4917-aa13-6cd37ff8885a",
+        "a88eaf6d-9cb5-46d7-8313-15fb9dfed3de",
+        "a880063c-c281-420c-af45-81d321b36592"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "inverse",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "image": "shopify:\/\/shop_images\/banner.jpg"
       }
     },
-    "rich_text": {
-      "type": "rich-text",
+    "usps_block": {
+      "type": "usps-block",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "da4468fa-c415-46ec-8d1d-3d5959dc247b": {
+          "type": "usp",
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
+            "usp_icon": "shopify:\/\/shop_images\/hammer_7490fcca-772c-44d9-8da6-26fcb6d1b244.svg",
+            "usp_title": "Supply and Fit",
+            "usp_text": "Home measure available"
           }
         },
-        "text": {
-          "type": "text",
+        "02d6d33d-037b-4496-9a79-b177d5aa0605": {
+          "type": "usp",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "usp_icon": "shopify:\/\/shop_images\/truck.svg",
+            "usp_title": "Free national delivery",
+            "usp_text": "On orders over £250"
+          }
+        },
+        "dbf8876a-54e0-4c4b-86a6-ffdf14e1283e": {
+          "type": "usp",
+          "settings": {
+            "usp_icon": "shopify:\/\/shop_images\/pound.svg",
+            "usp_title": "Unbeatable prices",
+            "usp_text": "Internet price in Witham, Essex"
+          }
+        },
+        "081e8206-975a-4983-ad2b-c28a82d30a01": {
+          "type": "usp",
+          "settings": {
+            "usp_icon": "shopify:\/\/shop_images\/pound_9a2112b8-eca7-430c-a146-815b4680c9fa.svg",
+            "usp_title": "Free samples",
+            "usp_text": "Order free samples now"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text"
+        "da4468fa-c415-46ec-8d1d-3d5959dc247b",
+        "02d6d33d-037b-4496-9a79-b177d5aa0605",
+        "dbf8876a-54e0-4c4b-86a6-ffdf14e1283e",
+        "081e8206-975a-4983-ad2b-c28a82d30a01"
       ],
       "settings": {
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
+        "image": "shopify:\/\/shop_images\/hammer_d22018cd-172e-4b0b-ad5e-eea392e1f18c.svg"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "trustpilot_simple_widget": {
+      "type": "trustpilot-simple-widget",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "background-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
       }
     },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
+    "27df1339-779c-4538-9048-9a8aa058906a": {
       "type": "multicolumn",
       "blocks": {
-        "column1": {
+        "template--18933691351313__27df1339-779c-4538-9048-9a8aa058906a-16845076596a122bd6-0": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "image": "shopify:\/\/shop_images\/offer-1.jpg",
+            "background_colour": "#9ab7c4",
+            "text_colour": "#3c3c3c",
+            "title": "",
+            "text": "",
             "link_label": "",
             "link": ""
           }
         },
-        "column2": {
+        "template--18933691351313__27df1339-779c-4538-9048-9a8aa058906a-16845076596a122bd6-1": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "image": "shopify:\/\/shop_images\/offer-2.jpg",
+            "background_colour": "#000000",
+            "text_colour": "#3c3c3c",
+            "title": "",
+            "text": "",
             "link_label": "",
             "link": ""
           }
         }
       },
       "block_order": [
-        "column1",
-        "column2",
-        "column3"
+        "template--18933691351313__27df1339-779c-4538-9048-9a8aa058906a-16845076596a122bd6-0",
+        "template--18933691351313__27df1339-779c-4538-9048-9a8aa058906a-16845076596a122bd6-1"
       ],
       "settings": {
         "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
+        "columns_desktop": 2,
+        "column_alignment": "left",
         "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "columns_mobile": "1"
+      }
+    },
+    "2321a3a9-0cb0-452e-a23e-6e9989a4fc72": {
+      "type": "favourite-products",
+      "blocks": {
+        "cbfcd3b5-ac2d-438e-990c-b98487b11fe3": {
+          "type": "column",
+          "settings": {
+            "product": "satino-exquisite"
+          }
+        },
+        "737fcddb-f3b8-4574-9db6-b68068b9cb01": {
+          "type": "column",
+          "settings": {
+            "product": "satino-exquisite"
+          }
+        },
+        "8c8ef574-b8a0-48f2-ad5c-3f95fbfa9957": {
+          "type": "column",
+          "settings": {
+            "product": "satino-exquisite"
+          }
+        },
+        "e939f917-32ae-41d4-9677-6d9288e1484b": {
+          "type": "column",
+          "settings": {
+            "product": "satino-exquisite"
+          }
+        }
+      },
+      "block_order": [
+        "cbfcd3b5-ac2d-438e-990c-b98487b11fe3",
+        "737fcddb-f3b8-4574-9db6-b68068b9cb01",
+        "8c8ef574-b8a0-48f2-ad5c-3f95fbfa9957",
+        "e939f917-32ae-41d4-9677-6d9288e1484b"
+      ],
+      "settings": {
+        "heading": "Customer Favourites"
+      }
+    },
+    "b9ffc1e4-0d47-4510-b507-549f647e679d": {
+      "type": "sale-products",
+      "blocks": {
+        "e4e915d7-c826-404a-8b58-fad0f0c7f065": {
+          "type": "column",
+          "settings": {
+            "product": "satino-exquisite"
+          }
+        },
+        "5ac60a67-56be-4dd6-b5a4-aa01c3277673": {
+          "type": "column",
+          "settings": {
+            "product": "satino-exquisite"
+          }
+        },
+        "09ba8c90-52d4-4345-ba38-d1672064e481": {
+          "type": "column",
+          "settings": {
+            "product": "satino-exquisite"
+          }
+        }
+      },
+      "block_order": [
+        "e4e915d7-c826-404a-8b58-fad0f0c7f065",
+        "5ac60a67-56be-4dd6-b5a4-aa01c3277673",
+        "09ba8c90-52d4-4345-ba38-d1672064e481"
+      ],
+      "settings": {
+        "title": "Shop Clearance",
+        "discount": 50,
+        "subtitle": "Save £££s compared to other retailers",
+        "link": ""
+      }
+    },
+    "30c26edf-2c5b-47c9-bcdd-18fa13b7793b": {
+      "type": "feature-block",
+      "settings": {
+        "title": "Keep your feet toasty with underfloor heating",
+        "body": "Whilst electric underfloor heating systems use electrical cables to pass energy through and generate heat, water systems use a connected.",
+        "link": "shopify:\/\/pages\/contact",
+        "linktext": "View Options",
+        "feature_image": "shopify:\/\/shop_images\/shutterstock_1578545284.jpg"
+      }
+    },
+    "b117d7bb-bb89-49e2-bb5e-404284dadeca": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--18933691351313__b117d7bb-bb89-49e2-bb5e-404284dadeca-1686826549f71c7d2a-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/fitting.jpg",
+            "background_colour": "#3c3c3c",
+            "text_colour": "#ffffff",
+            "title": "Full supply and fit service <strong>FREE<\/strong> home measure",
+            "text": "<p>Whilst electric underfloor heating systems use electrical cables to pass energy through and generate he<\/p>",
+            "link_label": "Discover More",
+            "link": "shopify:\/\/collections\/under-floor-heating"
+          }
+        },
+        "template--18933691351313__b117d7bb-bb89-49e2-bb5e-404284dadeca-1686826549f71c7d2a-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/showroom.jpg",
+            "background_colour": "#9ab7c4",
+            "text_colour": "#3c3c3c",
+            "title": "Visit our showroom with online prices, based in Witham",
+            "text": "<p>Whilst electric underfloor heating systems use electrical cables to pass energy through and generate he<\/p>",
+            "link_label": "Get directions",
+            "link": "shopify:\/\/pages\/contact"
+          }
+        }
+      },
+      "block_order": [
+        "template--18933691351313__b117d7bb-bb89-49e2-bb5e-404284dadeca-1686826549f71c7d2a-0",
+        "template--18933691351313__b117d7bb-bb89-49e2-bb5e-404284dadeca-1686826549f71c7d2a-1"
+      ],
+      "settings": {
+        "title": "Multicolumn",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "button_link": "",
+        "columns_mobile": "1"
       }
     }
   },
   "order": [
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "image_slider_banner",
+    "usps_block",
+    "trustpilot_simple_widget",
+    "27df1339-779c-4538-9048-9a8aa058906a",
+    "2321a3a9-0cb0-452e-a23e-6e9989a4fc72",
+    "b9ffc1e4-0d47-4510-b507-549f647e679d",
+    "30c26edf-2c5b-47c9-bcdd-18fa13b7793b",
+    "b117d7bb-bb89-49e2-bb5e-404284dadeca"
   ]
 }
