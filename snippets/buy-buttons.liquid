@@ -73,7 +73,7 @@
             id = "ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+            class="twcss-w-full twcss-py-4 twcss-flex twcss-justify-center twcss-items-center twcss-bg-brand-blue twcss-text-white"
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
@@ -97,9 +97,11 @@
               </svg>
             </div>
           </button>
+          {%- comment -%}
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}
+          {%- endcomment -%}
         </div>
       {%- endform -%}
     </product-form>
