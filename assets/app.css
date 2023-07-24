@@ -588,6 +588,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-column: span 10 / span 10;
 }
 
+.twcss-col-span-4 {
+  grid-column: span 4 / span 4;
+}
+
+.twcss-col-span-12 {
+  grid-column: span 12 / span 12;
+}
+
 .twcss-mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -761,6 +769,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   place-content: center;
 }
 
+.twcss-place-content-end {
+  place-content: end;
+}
+
 .twcss-items-center {
   align-items: center;
 }
@@ -779,6 +791,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .twcss-justify-between {
   justify-content: space-between;
+}
+
+.twcss-justify-items-end {
+  justify-items: end;
 }
 
 .twcss-gap-8 {
@@ -928,6 +944,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .twcss-bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.twcss-bg-brand-lightgrey {
+  --tw-bg-opacity: 1;
+  background-color: rgb(247 247 247 / var(--tw-bg-opacity));
 }
 
 .twcss-bg-cover {
@@ -1426,6 +1447,26 @@ video {
     grid-column: span 2 / span 2;
   }
 
+  .lg\:twcss-col-span-8 {
+    grid-column: span 8 / span 8;
+  }
+
+  .lg\:twcss-col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+
+  .lg\:twcss-col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .lg\:twcss-col-start-8 {
+    grid-column-start: 8;
+  }
+
+  .lg\:twcss-col-start-9 {
+    grid-column-start: 9;
+  }
+
   .lg\:twcss-block {
     display: block;
   }
@@ -1452,5 +1493,18 @@ video {
 
   .lg\:twcss-grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:twcss-grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .lg\:twcss-grid-cols-9 {
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+  }
+
+  .lg\:twcss-py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }

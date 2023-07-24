@@ -23,35 +23,36 @@
   <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 {%- endunless -%}
 
-<cart-items class="twcss-container twcss-px-4 xpage-width{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
-  <div class="title-wrapper-with-link">
-    <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
-    <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
-  </div>
+<div class="twcss-container twcss-px-4">
+  <cart-items class="page-width{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
+    <div class="title-wrapper-with-link">
+      <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
+      <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
+    </div>
 
-  <div class="cart__warnings">
-    <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-    <a href="{{ routes.all_products_collection_url }}" class="button">
-      {{ 'general.continue_shopping' | t }}
-    </a>
+    <div class="cart__warnings">
+      <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
+      <a href="{{ routes.all_products_collection_url }}" class="button">
+        {{ 'general.continue_shopping' | t }}
+      </a>
 
-    {%- if shop.customer_accounts_enabled and customer == null -%}
-      <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
-      <p class="cart__login-paragraph">
-        {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
-      </p>
-    {%- endif -%}
-  </div>
+      {%- if shop.customer_accounts_enabled and customer == null -%}
+        <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
+        <p class="cart__login-paragraph">
+          {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
+        </p>
+      {%- endif -%}
+    </div>
 
-  <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
-    <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
-      <div class="js-contents">
-        {%- if cart != empty -%}
-          <table class="cart-items">
-            <caption class="visually-hidden">
-              {{ 'sections.cart.title' | t }}
-            </caption>
-            <thead>
+    <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
+      <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
+        <div class="js-contents">
+          {%- if cart != empty -%}
+            <table class="cart-items">
+              <caption class="visually-hidden">
+                {{ 'sections.cart.title' | t }}
+              </caption>
+              <thead>
               <tr>
                 <th class="caption-with-letter-spacing" colspan="2" scope="col">
                   {{ 'sections.cart.headings.product' | t }}
@@ -66,9 +67,9 @@
                   {{ 'sections.cart.headings.total' | t }}
                 </th>
               </tr>
-            </thead>
+              </thead>
 
-            <tbody>
+              <tbody>
               {%- for item in cart.items -%}
                 <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
                   <td class="cart-item__media">
@@ -77,23 +78,23 @@
                       <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
                       <div class="cart-item__image-container gradient global-media-settings">
                         <img
-                          src="{{ item.image | image_url: width: 300 }}"
-                          class="cart-item__image"
-                          alt="{{ item.image.alt | escape }}"
-                          loading="lazy"
-                          width="150"
-                          height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
+                            src="{{ item.image | image_url: width: 300 }}"
+                            class="cart-item__image"
+                            alt="{{ item.image.alt | escape }}"
+                            loading="lazy"
+                            width="150"
+                            height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
                         >
                       </div>
                     {% endif %}
                   </td>
 
-                  <td class="cart-item__detailsxx">
+                  <td class="cart-item__details">
                     {%- if settings.show_vendor -%}
                       <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
                     {%- endif -%}
 
-                    <a href="{{ item.url }}" class="cart-item__name break">{{ item.product.title | escape }}</a>
+                    <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
 
                     {%- if item.original_price != item.final_price -%}
                       <div class="cart-item__discounted-prices">
@@ -117,8 +118,8 @@
                     {%- endif -%}
 
                     {%- if item.product.has_only_default_variant == false
-                      or item.properties.size != 0
-                      or item.selling_plan_allocation != null
+                    or item.properties.size != 0
+                    or item.selling_plan_allocation != null
                     -%}
                       <dl>
                         {%- if item.product.has_only_default_variant == false -%}
@@ -166,11 +167,11 @@
                     <div class="loading-overlay hidden">
                       <div class="loading-overlay__spinner">
                         <svg
-                          aria-hidden="true"
-                          focusable="false"
-                          class="spinner"
-                          viewBox="0 0 66 66"
-                          xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            focusable="false"
+                            class="spinner"
+                            viewBox="0 0 66 66"
+                            xmlns="http://www.w3.org/2000/svg"
                         >
                           <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                         </svg>
@@ -206,7 +207,7 @@
                           {{ item.variant.unit_price | money }}
                           <span aria-hidden="true">/</span>
                           <span class="visually-hidden"
-                            >&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span
+                          >&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span
                           >
                           {%- if item.variant.unit_price_measurement.reference_value != 1 -%}
                             {{- item.variant.unit_price_measurement.reference_value -}}
@@ -230,22 +231,22 @@
                           {% render 'icon-minus' %}
                         </button>
                         <input
-                          class="quantity__input"
-                          data-quantity-variant-id="{{ item.variant.id }}"
-                          type="number"
-                          name="updates[]"
-                          value="{{ item.quantity }}"
-                          {% # theme-check-disable %}
-                          data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
-                          min="{{ item.variant.quantity_rule.min }}"
-                          {% if item.variant.quantity_rule.max != null %}
-                            max="{{ item.variant.quantity_rule.max }}"
-                          {% endif %}
-                          step="{{ item.variant.quantity_rule.increment }}"
-                          {% # theme-check-enable %}
-                          aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
-                          id="Quantity-{{ item.index | plus: 1 }}"
-                          data-index="{{ item.index | plus: 1 }}"
+                            class="quantity__input"
+                            data-quantity-variant-id="{{ item.variant.id }}"
+                            type="number"
+                            name="updates[]"
+                            value="{{ item.quantity }}"
+                            {% # theme-check-disable %}
+                            data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                            min="{{ item.variant.quantity_rule.min }}"
+                            {% if item.variant.quantity_rule.max != null %}
+                              max="{{ item.variant.quantity_rule.max }}"
+                            {% endif %}
+                            step="{{ item.variant.quantity_rule.increment }}"
+                            {% # theme-check-enable %}
+                            aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                            id="Quantity-{{ item.index | plus: 1 }}"
+                            data-index="{{ item.index | plus: 1 }}"
                         >
                         <button class="quantity__button no-js-hidden" name="plus" type="button">
                           <span class="visually-hidden">
@@ -256,13 +257,13 @@
                       </quantity-input>
 
                       <cart-remove-button
-                        id="Remove-{{ item.index | plus: 1 }}"
-                        data-index="{{ item.index | plus: 1 }}"
+                          id="Remove-{{ item.index | plus: 1 }}"
+                          data-index="{{ item.index | plus: 1 }}"
                       >
                         <a
-                          href="{{ item.url_to_remove }}"
-                          class="button button--tertiary"
-                          aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                            href="{{ item.url_to_remove }}"
+                            class="button button--tertiary"
+                            aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                         >
                           {% render 'icon-remove' %}
                         </a>
@@ -271,10 +272,10 @@
                     <div class="cart-item__error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert">
                       <small class="cart-item__error-text"></small>
                       <svg
-                        aria-hidden="true"
-                        focusable="false"
-                        class="icon icon-error"
-                        viewBox="0 0 13 13"
+                          aria-hidden="true"
+                          focusable="false"
+                          class="icon icon-error"
+                          viewBox="0 0 13 13"
                       >
                         <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
                         <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
@@ -288,11 +289,11 @@
                     <div class="loading-overlay hidden">
                       <div class="loading-overlay__spinner">
                         <svg
-                          aria-hidden="true"
-                          focusable="false"
-                          class="spinner"
-                          viewBox="0 0 66 66"
-                          xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            focusable="false"
+                            class="spinner"
+                            viewBox="0 0 66 66"
+                            xmlns="http://www.w3.org/2000/svg"
                         >
                           <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                         </svg>
@@ -329,7 +330,7 @@
                           {{ item.variant.unit_price | money }}
                           <span aria-hidden="true">/</span>
                           <span class="visually-hidden"
-                            >&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span
+                          >&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span
                           >
                           {%- if item.variant.unit_price_measurement.reference_value != 1 -%}
                             {{- item.variant.unit_price_measurement.reference_value -}}
@@ -341,18 +342,20 @@
                   </td>
                 </tr>
               {%- endfor -%}
-            </tbody>
-          </table>
-        {%- endif -%}
+              </tbody>
+            </table>
+          {%- endif -%}
+        </div>
       </div>
-    </div>
 
-    <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
-    <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">
-      {{ 'accessibility.loading' | t }}
-    </p>
-  </form>
-</cart-items>
+      <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
+      <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">
+        {{ 'accessibility.loading' | t }}
+      </p>
+    </form>
+  </cart-items>
+</div>
+
 
 {% schema %}
 {
