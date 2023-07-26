@@ -10,6 +10,12 @@
     "cart-footer": {
       "type": "main-cart-footer",
       "blocks": {
+        "e087dde2-504c-4169-bfc0-28fb86b74879": {
+          "type": "shopify:\/\/apps\/se-option-price-calculator\/blocks\/cart_calculation\/8f01aabe-62b9-4cde-aee9-dfb98853943a",
+          "settings": {
+            "include_jquery": true
+          }
+        },
         "subtotal": {
           "type": "subtotal",
           "settings": {
@@ -22,6 +28,7 @@
         }
       },
       "block_order": [
+        "e087dde2-504c-4169-bfc0-28fb86b74879",
         "subtotal",
         "buttons"
       ],
