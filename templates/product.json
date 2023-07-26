@@ -24,6 +24,7 @@
         },
         "8207b7ab-9abf-45de-a5ef-d2b4a36a0b57": {
           "type": "shopify:\/\/apps\/se-option-price-calculator\/blocks\/product_option\/8f01aabe-62b9-4cde-aee9-dfb98853943a",
+          "disabled": true,
           "settings": {
             "include_jquery": true,
             "metadata01": "Delete this text and insert Metadata",
