@@ -1,4 +1,4 @@
-{%- comment -%}
+
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -492,20 +492,19 @@
 
 
 
-{%- endcomment -%}
 
-
+{%- comment -%}
 
 
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-{%- comment -%}
+
 {%- if settings.cart_type == "drawer" -%}
   <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
-{%- endcomment -%}
+
 
 <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
 	<symbol id="icon-search" viewbox="0 0 18 19" fill="none">
@@ -785,3 +784,4 @@
 }
 {% endschema %}
 
+{%- endcomment -%}
