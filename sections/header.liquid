@@ -1,4 +1,4 @@
-
+{%- comment -%}
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -492,19 +492,20 @@
 
 
 
+{%- endcomment -%}
 
-{%- comment -%}
+
 
 
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-
+{%- comment -%}
 {%- if settings.cart_type == "drawer" -%}
   <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
-
+{%- endcomment -%}
 
 <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
 	<symbol id="icon-search" viewbox="0 0 18 19" fill="none">
@@ -561,13 +562,13 @@
 				<div
 						x-data="{ cart_count: {{ cart.item_count }} }"
 						@cart-count-updated.window="cart_count = $event.detail"
-						class="twcss-relative"
+						class="relative"
 				>
 					<a href="/cart">
 						<button
 								type="button"
 								title="Cart button"
-								class="header__icon twcss-text-center twcss-w-12 twcss-h-12 twcss-text-core-white"
+								class="header__icon text-center w-12 h-12 text-white"
 						>
 							{%- liquid
 								if cart == empty
@@ -576,8 +577,8 @@
 									render 'icon-cart'
 								endif
 							-%}
-							<span class="twcss-sr-only">{{ 'templates.cart.cart' |  t }}</span>
-							<span x-cloak x-show="cart_count > 0" x-text="cart_count" class="cart__count twcss-min-w-[22px] twcss-text-sm !twcss-h-[22px] twcss-absolute twcss-grid twcss-place-content-center twcss-rounded-full twcss-top-0 twcss-right-3 twcss-text-white twcss-bg-brand-red"> {{ cart.item_count }} </span>
+							<span class="sr-only">{{ 'templates.cart.cart' |  t }}</span>
+							<span x-cloak x-show="cart_count > 0" x-text="cart_count" class="cart__count min-w-[22px] text-sm min-h-[22px] absolute grid place-content-center rounded-full top-0 right-3 text-white bg-brand-red"> {{ cart.item_count }} </span>
 						</button>
 					</a>
 
@@ -784,4 +785,3 @@
 }
 {% endschema %}
 
-{%- endcomment -%}

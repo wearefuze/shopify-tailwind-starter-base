@@ -25,10 +25,13 @@
   endif
 -%}
 
-<div class="facets-container scroll-trigger animate--fade-in">
+<div class="facets-container{% if filter_type == 'drawer' %} facets-container-drawer{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
   {%- if filter_type == 'vertical' or filter_type == 'horizontal' -%}
     <facet-filters-form class="facets small-hide">
-      <form id="FacetFiltersForm" class="facets__form-vertical" >
+      <form
+        id="FacetFiltersForm"
+        class="{% if filter_type == 'horizontal' %}facets__form{% else %}facets__form-vertical{% endif %}"
+      >
         {%- if results.terms -%}
           <input type="hidden" name="q" value="{{ results.terms | escape }}">
           <input name="options[prefix]" type="hidden" value="last">
@@ -36,13 +39,24 @@
 
         {% if enable_filtering %}
           {% comment %} Heading is the first tabbable element on filter type horizontal {% endcomment %}
-          <div  id="FacetsWrapperDesktop">
+          <div
+            id="FacetsWrapperDesktop"
+            {% if filter_type == 'horizontal' %}
+              class="facets__wrapper"
+            {% endif %}
+          >
+            {%- if filter_type == 'horizontal' and results.filters != empty -%}
+              <h2 class="facets__heading caption-large text-body" id="verticalTitle" tabindex="-1">
+                {{ 'products.facets.filter_by_label' | t }}
+              </h2>
+            {%- endif -%}
             {% comment %} Pills are right below the title for filter type vertical {% endcomment %}
+            {%- if filter_type == 'vertical' -%}
               <div class="active-facets active-facets-desktop">
                 <div class="active-facets-vertical-filter">
                   {%- unless results.filters == empty -%}
                     <h2
-                      class="twcss-text-lg"
+                      class="facets__heading facets__heading--vertical caption-large text-body"
                       id="verticalTitle"
                       tabindex="-1"
                     >
@@ -50,7 +64,7 @@
                     </h2>
                   {%- endunless -%}
                   <facet-remove class="active-facets__button-wrapper">
-                    <a href="{{ results_url }}" class="active-facets__button-remove twcss-underline">
+                    <a href="{{ results_url }}" class="active-facets__button-remove underlined-link">
                       <span>{{ 'products.facets.clear_all' | t }}</span>
                     </a>
                   </facet-remove>
@@ -92,6 +106,7 @@
                   {% endif %}
                 {%- endfor -%}
               </div>
+            {%- endif -%}
 
             <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
             {% comment %} Filters for both horizontal and vertical filter {% endcomment %}
@@ -108,7 +123,7 @@
                     {% endif %}
                   >
                     <summary
-                      class="facets__summary focus-offset"
+                      class="facets__summary caption-large focus-offset"
                       aria-label="{{ filter.label }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})"
                     >
                       <div>
@@ -303,7 +318,7 @@
                       open
                     {% endif %}
                   >
-                    <summary class="facets__summary focus-offset">
+                    <summary class="facets__summary caption-large focus-offset">
                       <div>
                         <span>{{ filter.label | escape }}</span>
                         {% render 'icon-caret' %}
@@ -311,9 +326,9 @@
                     </summary>
                     <div
                       id="Facet-{{ forloop.index }}-{{ section.id }}"
-                      class="facets__display-vertical"
+                      class="{% if filter_type == 'horizontal' %}facets__display{% else %}facets__display-vertical{% endif %}"
                     >
-                      <div class="facets__header-vertical">
+                      <div class="{% if filter_type == 'horizontal' %}facets__header{% else %}facets__header-vertical{% endif %}">
                         {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
                         <span class="facets__selected">
                           {{- 'products.facets.max_price' | t: price: max_price_amount -}}
@@ -330,7 +345,7 @@
                         <span class="field-currency">{{ cart.currency.symbol }}</span>
                         <div class="field">
                           <input
-                            class="field__input !twcss-p-0 !twcss-h-8"
+                            class="field__input"
                             name="{{ filter.min_value.param_name }}"
                             id="Filter-{{ filter.label | escape }}-GTE"
                             {%- if filter.min_value.value -%}
@@ -349,7 +364,7 @@
                               max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
                             {% endif %}
                           >
-                          <label class="field__label !twcss-text-lg" for="Filter-{{ filter.label | escape }}-GTE">
+                          <label class="field__label" for="Filter-{{ filter.label | escape }}-GTE">
                             {{- 'products.facets.from' | t -}}
                           </label>
                         </div>
@@ -358,7 +373,7 @@
                         {%- endif -%}
                         <div class="field">
                           <input
-                            class="field__input !twcss-p-0 !twcss-h-8"
+                            class="field__input"
                             name="{{ filter.max_value.param_name }}"
                             id="Filter-{{ filter.label | escape }}-LTE"
                             {%- if filter.max_value.value -%}
@@ -378,7 +393,7 @@
                               max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
                             {% endif %}
                           >
-                          <label class="field__label !twcss-text-lg" for="Filter-{{ filter.label | escape }}-LTE">
+                          <label class="field__label" for="Filter-{{ filter.label | escape }}-LTE">
                             {{- 'products.facets.to' | t -}}
                           </label>
                         </div>
