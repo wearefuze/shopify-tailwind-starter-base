@@ -1,0 +1,59 @@
+<div class="twcss-container twcss-py-8">
+	<h2 class="twcss-text-xl">{{ section.settings.heading }}</h2>
+	<div class="twcss-grid twcss-grid-cols-2 lg:twcss-grid-cols-4 twcss-gap-8">
+
+		{% for block in section.blocks  %}
+			{% assign product = block.settings.product %}
+			<div class="twcss-border twcss-border-gray-300 twcss-rounded-lg">
+				<a href="{{ product.url }}">
+					<div class="twcss-aspect-square twcss-pb-2 twcss-rounded-t-lg">
+						{{ product.featured_media | image_url: width: 900 | image_tag: loading: lazy, class: 'twcss-aspect-square twcss-object-cover twcss-rounded-t-lg' }}
+					</div>
+					<div class="twcss-p-4">
+						<div class="twcss-text-sm twcss-uppercase twcss-text-gray-300">{{ product.collections[0].title }}</div>
+						<div class="twcss-text-base twcss-font-bold twcss-pt-2 twcss-pb-4">{{ product.title }}</div>
+						<div class="twcss-text-base twcss-font-bold">{{ product.price | money_with_currency }} <span class="twcss-text-xs twcss-font-light">{{ product.unit_price_measurement.quantity_value }}{{ product.unit_price_measurement.quantity_unit }}</span></div>
+					</div>
+					</a>
+			</div>
+		{% endfor %}
+
+	</div>
+</div>
+
+{% schema %}
+{
+  "name": "Favourite Products",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+		{
+			"type": "text",
+			"id": "heading",
+			"label": "Heading",
+			"default": "Customer Favourites"
+		}
+	],
+  "max_blocks": 4,
+  "blocks": [
+    {
+			"type": "column",
+			"name": "product",
+			"settings": [
+				{
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+				}
+			]
+    }
+  ],
+  "presets": [{
+      "name": "Favourite Products"
+	}]
+}
+
+{% endschema %}
