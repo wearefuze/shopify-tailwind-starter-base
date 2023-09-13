@@ -2,8 +2,8 @@
 {{ 'component-totals.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
-<div class="twcss-container twcss-px-4">
-  <div class="page-width{% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="{{ section.id }}">
+<div class="twcss-container">
+  <div class="page-widthxx{% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="{{ section.id }}">
 
     <div class="twcss-grid twcss-grid-cols-12 twcss-place-content-end">
       <div class="cart__footerxx twcss-col-span-12 lg:twcss-col-span-4 lg:twcss-col-start-9">
@@ -59,14 +59,14 @@
                   </small>
                 </div>
               {%- else -%}
-                <div class="cart__ctas" {{ block.shopify_attributes }}>
+                <div class="cart__ctas twcss-justify-end" {{ block.shopify_attributes }}>
                   <noscript>
                     <button type="submit" class="cart__update-button button button--secondary" form="cart">
                       {{ 'sections.cart.update' | t }}
                     </button>
                   </noscript>
 
-                  <button type="submit" id="checkout" class="cart__checkout-button button" name="checkout" {% if cart == empty %}disabled{% endif %} form="cart">
+                  <button type="submit" id="checkout" class="cart__checkout-button button__primary" name="checkout" {% if cart == empty %}disabled{% endif %} form="cart">
                     {{ 'sections.cart.checkout' | t }}
                   </button>
                 </div>

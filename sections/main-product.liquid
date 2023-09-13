@@ -59,7 +59,7 @@
     <div class=" product__media-wrapper">
       {% render 'product-media-gallery', variant_images: variant_images %}
     </div>
-    <div class="product__info-wrapper scroll-trigger animate--slide-in">
+    <div class="product__info-wrapper scroll-trigger animate--slide-in twcss-order-first lg:twcss-order-last">
       <product-info
         id="ProductInfo-{{ section.id }}"
         data-section="{{ section.id }}"

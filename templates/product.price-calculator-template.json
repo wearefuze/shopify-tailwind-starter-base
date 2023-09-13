@@ -26,7 +26,7 @@
           "type": "shopify:\/\/apps\/se-option-price-calculator\/blocks\/product_option\/8f01aabe-62b9-4cde-aee9-dfb98853943a",
           "settings": {
             "include_jquery": true,
-            "metadata01": "Delete this text and insert Metadata",
+            "metadata01": "{{ product.metafields.custom.area_per_pack.value }}",
             "metadata02": "Delete this text and insert Metadata",
             "metadata03": "Delete this text and insert Metadata",
             "metadata04": "Delete this text and insert Metadata",
@@ -35,6 +35,7 @@
         },
         "price": {
           "type": "price",
+          "disabled": true,
           "settings": {
           }
         },

@@ -474,12 +474,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: auto;
 }
 
-@media (min-width: 320px) {
-  .twcss-container {
-    max-width: 320px;
-  }
-}
-
 @media (min-width: 750px) {
   .twcss-container {
     max-width: 750px;
@@ -495,12 +489,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 @media (min-width: 1440px) {
   .twcss-container {
     max-width: 1440px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .twcss-container {
-    max-width: 1920px;
   }
 }
 
@@ -548,10 +536,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   top: 0px;
 }
 
-.twcss-right-3 {
-  right: 0.75rem;
-}
-
 .twcss-right-0 {
   right: 0px;
 }
@@ -576,24 +560,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   z-index: 50;
 }
 
+.twcss-order-first {
+  order: -9999;
+}
+
 .twcss-col-span-1 {
   grid-column: span 1 / span 1;
 }
 
-.twcss-col-span-2 {
-  grid-column: span 2 / span 2;
+.twcss-col-span-12 {
+  grid-column: span 12 / span 12;
 }
 
 .twcss-col-span-10 {
   grid-column: span 10 / span 10;
-}
-
-.twcss-col-span-4 {
-  grid-column: span 4 / span 4;
-}
-
-.twcss-col-span-12 {
-  grid-column: span 12 / span 12;
 }
 
 .twcss-mx-auto {
@@ -642,16 +622,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   aspect-ratio: 1 / 1;
 }
 
+.twcss-h-80 {
+  height: 20rem;
+}
+
+.twcss-h-full {
+  height: 100%;
+}
+
 .twcss-h-6 {
   height: 1.5rem;
 }
 
-.twcss-h-12 {
-  height: 3rem;
-}
-
-.\!twcss-h-\[22px\] {
-  height: 22px !important;
+.twcss-h-8 {
+  height: 2rem;
 }
 
 .twcss-h-auto {
@@ -660,10 +644,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .twcss-h-0 {
   height: 0px;
-}
-
-.twcss-h-full {
-  height: 100%;
 }
 
 .twcss-h-2 {
@@ -678,8 +658,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 2rem !important;
 }
 
-.twcss-h-8 {
-  height: 2rem;
+.twcss-h-12 {
+  height: 3rem;
+}
+
+.twcss-w-full {
+  width: 100%;
 }
 
 .twcss-w-64 {
@@ -690,12 +674,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 1.5rem;
 }
 
-.twcss-w-12 {
-  width: 3rem;
-}
-
-.twcss-w-full {
-  width: 100%;
+.twcss-w-8 {
+  width: 2rem;
 }
 
 .twcss-w-2\/3 {
@@ -714,12 +694,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 75%;
 }
 
-.twcss-w-8 {
-  width: 2rem;
-}
-
-.twcss-min-w-\[22px\] {
-  min-width: 22px;
+.twcss-w-12 {
+  width: 3rem;
 }
 
 .twcss-flex-1 {
@@ -731,8 +707,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.twcss-translate-y-40 {
-  --tw-translate-y: 10rem;
+.twcss-translate-y-24 {
+  --tw-translate-y: 6rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -745,12 +721,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.twcss-grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .twcss-grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.twcss-grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .twcss-grid-cols-12 {
@@ -763,10 +739,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .twcss-flex-col {
   flex-direction: column;
-}
-
-.twcss-place-content-center {
-  place-content: center;
 }
 
 .twcss-place-content-end {
@@ -791,10 +763,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .twcss-justify-between {
   justify-content: space-between;
-}
-
-.twcss-justify-items-end {
-  justify-items: end;
 }
 
 .twcss-gap-8 {
@@ -917,13 +885,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(102 103 104 / var(--tw-bg-opacity));
 }
 
+.twcss-bg-transparent {
+  background-color: transparent;
+}
+
 .twcss-bg-brand-red {
   --tw-bg-opacity: 1;
   background-color: rgb(206 87 86 / var(--tw-bg-opacity));
-}
-
-.twcss-bg-transparent {
-  background-color: transparent;
 }
 
 .twcss-bg-core-white {
@@ -946,9 +914,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
-.twcss-bg-brand-lightgrey {
-  --tw-bg-opacity: 1;
-  background-color: rgb(247 247 247 / var(--tw-bg-opacity));
+.twcss-bg-opacity-60 {
+  --tw-bg-opacity: 0.6;
 }
 
 .twcss-bg-cover {
@@ -1329,17 +1296,63 @@ video {
 }
 
 .button__primary {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
-  border-radius: 0.125rem;
+  justify-content: center;
+  border-radius: 0.5rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  background-color: rgb(160 183 196 / var(--tw-bg-opacity));
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.cart-count-bubble {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(206 87 86 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  height: 1.7rem;
+  width: 1.7rem;
+  font-size: 0.9rem;
+  bottom: 0.8rem;
+  left: 1.3rem;
+}
+
+.twcss-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 990px) {
+  .twcss-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+.facets-container .product-count {
+  text-align: left !important;
+}
+
+.mobile-facets {
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
+  --tw-bg-opacity: 0.5 !important;
+}
+
+.mobile-facets__inner {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
 }
 
 .focus-within\:twcss-text-brand-blue:focus-within {
@@ -1443,24 +1456,16 @@ video {
 }
 
 @media (min-width: 990px) {
+  .lg\:twcss-order-last {
+    order: 9999;
+  }
+
   .lg\:twcss-col-span-2 {
     grid-column: span 2 / span 2;
   }
 
-  .lg\:twcss-col-span-8 {
-    grid-column: span 8 / span 8;
-  }
-
   .lg\:twcss-col-span-4 {
     grid-column: span 4 / span 4;
-  }
-
-  .lg\:twcss-col-span-3 {
-    grid-column: span 3 / span 3;
-  }
-
-  .lg\:twcss-col-start-8 {
-    grid-column-start: 8;
   }
 
   .lg\:twcss-col-start-9 {
@@ -1479,6 +1484,10 @@ video {
     display: none;
   }
 
+  .lg\:twcss-grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .lg\:twcss-grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -1491,20 +1500,7 @@ video {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
-  .lg\:twcss-grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .lg\:twcss-grid-cols-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
-  }
-
-  .lg\:twcss-grid-cols-9 {
-    grid-template-columns: repeat(9, minmax(0, 1fr));
-  }
-
-  .lg\:twcss-py-16 {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
   }
 }

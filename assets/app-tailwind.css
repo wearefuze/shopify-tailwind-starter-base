@@ -100,5 +100,30 @@ video {
 }
 
 .button__primary {
-  @apply twcss-bg-black twcss-text-white twcss-my-2 twcss-px-6 twcss-rounded-sm twcss-flex twcss-items-center;
+  @apply twcss-bg-brand-blue twcss-text-white twcss-text-lg twcss-py-4 twcss-px-6 twcss-rounded-lg twcss-flex twcss-items-center twcss-justify-center;
+}
+
+.cart-count-bubble {
+  @apply twcss-absolute twcss-bg-brand-red twcss-text-core-white twcss-flex twcss-justify-center twcss-items-center twcss-rounded-full;
+  height: 1.7rem;
+  width: 1.7rem;
+  font-size: 0.9rem;
+  bottom: 0.8rem;
+  left: 1.3rem;
+}
+
+.twcss-container {
+  @apply twcss-px-4 lg:twcss-px-2;
+}
+
+.facets-container .product-count {
+  @apply !twcss-text-left;
+}
+
+.mobile-facets {
+  @apply !twcss-bg-core-black !twcss-bg-opacity-50;
+}
+
+.mobile-facets__inner {
+  @apply !twcss-bg-core-white;
 }

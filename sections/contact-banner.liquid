@@ -1,0 +1,52 @@
+<div class="twcss-full twcss-h-80 relative">
+  <div class="twcss-grid twcss-grid-cols-1 lg:twcss-grid-cols-2">
+    <div>
+      <div class="lg:twcss-hidden twcss-py-8">
+        <h1>{{ contact_banner_title }}</h1>
+        <div>{{ contact_banner_body }}</div>
+        <div>{% render 'social-icons' %}</div>
+      </div>
+    </div>
+    <div>
+      <img src="{{ block.settings.contact_banner_image.src | img_url: "medium" }}" alt="map" class="twcss-object-cover">
+    </div>
+  </div>
+  <div class="twcss-absolute twcss-w-full twcss-h-full twcss-flex twcss-items-center twcss-hidden lg:twcss-block">
+    <div>
+      <h1>{{ block.settings.contact_banner_title }}</h1>
+      <div>{{ block.settings.contact_banner_body }}</div>
+      <div>{% render 'social-icons' %}</div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Banner",
+  "settings": [
+    {
+      "id": "contact_banner_title",
+      "type": "text",
+      "label": "Contact Banner Title",
+      "default": "Title"
+    },
+    {
+      "id": "contact_banner_body",
+      "type": "richtext",
+      "label": "Add custom text below",
+      "default": "<p>Add your text here</p>"
+    },
+    {
+      "id": "contact_banner_image",
+      "type": "image_picker",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "contact-banner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

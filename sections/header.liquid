@@ -559,29 +559,25 @@
 				<div>
 					<a class="twcss-text-core-white twcss-py-4 hover:twcss-underline twcss-transition-all twcss-duration-300" href="/pages/contact">Contact us</a>
 				</div>
-				<div
-						x-data="{ cart_count: {{ cart.item_count }} }"
-						@cart-count-updated.window="cart_count = $event.detail"
-						class="twcss-relative"
-				>
-					<a href="/cart">
-						<button
-								type="button"
-								title="Cart button"
-								class="header__icon twcss-text-center twcss-w-12 twcss-h-12 twcss-text-core-white"
-						>
-							{%- liquid
-								if cart == empty
-									render 'icon-cart-empty'
-								else
-									render 'icon-cart'
-								endif
-							-%}
-							<span class="twcss-sr-only">{{ 'templates.cart.cart' |  t }}</span>
-							<span x-cloak x-show="cart_count > 0" x-text="cart_count" class="cart__count twcss-min-w-[22px] twcss-text-sm !twcss-h-[22px] twcss-absolute twcss-grid twcss-place-content-center twcss-rounded-full twcss-top-0 twcss-right-3 twcss-text-white twcss-bg-brand-red"> {{ cart.item_count }} </span>
-						</button>
+              <div>
+					<a href="{{ routes.cart_url }}" class="header__iconx header__icon--cartx twcss-relative link focus-inset twcss-w-8 twcss-h-8 twcss-text-core-white" id="cart-icon-bubble">
+						{%- liquid
+							if cart == empty
+								render 'icon-cart-empty'
+							else
+								render 'icon-cart'
+							endif
+						-%}
+						<span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+						{%- if cart != empty -%}
+							<div class="cart-count-bubble">
+								{%- if cart.item_count < 100 -%}
+									<span aria-hidden="true">{{ cart.item_count }}</span>
+								{%- endif -%}
+								<span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+							</div>
+						{%- endif -%}
 					</a>
-
 				</div>
 			</div>
 		</div>
@@ -672,9 +668,9 @@
 				</div>
 			{% endif %}
 		</div>
-		<div id="mobile-menu" class="twcss-inset-0 twcss-w-full twcss-mx-auto twcss-top-0 twcss-right-0 twcss-flex twcss-justify-end twcss-duration-300 twcss-transform twcss-fixed twcss-transition twcss-overflow-hidden -twcss-translate-y-full twcss-ease-out" :class="{'twcss-translate-y-40 twcss-ease-in twcss-z-50':showMenu === true, '-twcss-translate-y-full twcss-ease-out':showMenu === false}">
+		<div id="mobile-menu" class="twcss-inset-0 twcss-w-full twcss-mx-auto twcss-top-0 twcss-right-0 twcss-flex twcss-justify-end twcss-duration-300 twcss-transform twcss-fixed twcss-transition twcss-overflow-hidden -twcss-translate-y-full twcss-ease-out twcss-bg-brand-darkgrey twcss-bg-opacity-60" :class="{'twcss-translate-y-24 twcss-ease-in twcss-z-50':showMenu === true, '-twcss-translate-y-full twcss-ease-out':showMenu === false}">
 			<div class="twcss-w-full">
-				<div class="twcss-flex twcss-flex-col twcss-divide-y twcss-divide-brand-light-gray twcss-bg-brand-darkgrey ">
+				<div class="twcss-flex twcss-flex-col twcss-divide-y twcss-divide-brand-light-gray twcss-bg-brand-darkgrey">
 					{% for link in section.settings.menu.links %}
 
 						{% if link.url == '/pages/contact'  %}

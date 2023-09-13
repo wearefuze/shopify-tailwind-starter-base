@@ -7,6 +7,14 @@
         "padding_bottom": 36
       }
     },
+    "4997049d-3951-4db1-b88f-01a9c0e1a46e": {
+      "type": "contact-banner",
+      "settings": {
+        "contact_banner_title": "Where to find us",
+        "contact_banner_body": "<p>Unit 9, Opus Business Park, <br\/>1 Wheaton Rd,  Witham CM8 3UJ<\/p><p>Mon - Fri 08:00 - 17:00<br\/>Sat - 09:00 - 16:00<br\/>Sun - Closed<br\/>Bank Holidays - Closed<\/p><p><a href=\"mailto:sales@cmflooringsupplies.co.uk\" title=\"mailto:sales@cmflooringsupplies.co.uk\">sales@cmflooringsupplies.co.uk<\/a><br\/>07984 618727<\/p>",
+        "contact_banner_image": "shopify:\/\/shop_images\/map.jpg"
+      }
+    },
     "form": {
       "type": "contact-form",
       "settings": {
@@ -20,6 +28,7 @@
   },
   "order": [
     "main",
+    "4997049d-3951-4db1-b88f-01a9c0e1a46e",
     "form"
   ]
 }
