@@ -124,6 +124,8 @@
         "template--18933691351313__27df1339-779c-4538-9048-9a8aa058906a-16845076596a122bd6-1"
       ],
       "settings": {
+        "padding_top": "twcss-pt-16",
+        "padding_bottom": "twcss-pb-0",
         "title": "",
         "columns_desktop": 2,
         "column_alignment": "left",
@@ -166,7 +168,9 @@
         "4ff2b955-6aca-4be6-9771-430122bb7cc9"
       ],
       "settings": {
-        "heading": "Flooring loved by our customers"
+        "heading": "Flooring loved by our customers",
+        "padding_top": "twcss-pt-16",
+        "padding_bottom": "twcss-pb-0"
       }
     },
     "b9ffc1e4-0d47-4510-b507-549f647e679d": {
@@ -184,19 +188,21 @@
             "product": "satino-exquisite"
           }
         },
-        "247d28fb-c182-4cc6-9181-195577238b23": {
+        "d84734f1-86a7-49cc-a56f-d88af025deff": {
           "type": "column",
           "settings": {
-            "product": "carpet-stretcher"
+            "product": "rustic-textures-parquet"
           }
         }
       },
       "block_order": [
         "e4e915d7-c826-404a-8b58-fad0f0c7f065",
         "5ac60a67-56be-4dd6-b5a4-aa01c3277673",
-        "247d28fb-c182-4cc6-9181-195577238b23"
+        "d84734f1-86a7-49cc-a56f-d88af025deff"
       ],
       "settings": {
+        "padding_top": "twcss-pt-16",
+        "padding_bottom": "twcss-pb-0",
         "title": "Shop Clearance",
         "discount": 50,
         "subtitle": "Save £££s compared to other retailers",
@@ -206,6 +212,8 @@
     "30c26edf-2c5b-47c9-bcdd-18fa13b7793b": {
       "type": "feature-block",
       "settings": {
+        "padding_top": "twcss-pt-16",
+        "padding_bottom": "twcss-pb-0",
         "title": "Keep your feet toasty with underfloor heating",
         "body": "Whilst electric underfloor heating systems use electrical cables to pass energy through and generate heat, water systems use a connected.",
         "link": "shopify:\/\/pages\/contact",
@@ -246,6 +254,8 @@
         "template--18933691351313__b117d7bb-bb89-49e2-bb5e-404284dadeca-1686826549f71c7d2a-1"
       ],
       "settings": {
+        "padding_top": "twcss-pt-16",
+        "padding_bottom": "twcss-pb-16",
         "title": "Multicolumn",
         "columns_desktop": 2,
         "column_alignment": "left",

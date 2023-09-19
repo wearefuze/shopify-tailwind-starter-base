@@ -9,10 +9,15 @@
           "type": "announcement",
           "settings": {
             "text": "Welcome to our store",
-            "link": "shopify:\/\/pages\/contact",
-            "link-text": "View showroom",
+            "link": "https:\/\/www.google.com\/maps\/place\/CM+Flooring+Supplies+Ltd\/@51.7992541,0.6487087,15z\/data=!4m2!3m1!1s0x0:0xc43a229cf616eed",
+            "link-text": "Visit showroom",
+            "external-link": true,
             "link-2": "shopify:\/\/pages\/contact",
-            "link-text-2": "Account"
+            "link-text-2": "Account",
+            "external-link-2": false,
+            "button-link": "shopify:\/\/pages\/trade-account",
+            "button-link-text": "Trade account",
+            "external-button-link": false
           }
         }
       },

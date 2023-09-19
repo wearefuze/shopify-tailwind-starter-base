@@ -3,25 +3,31 @@
   <div  class="twcss-hidden lg:twcss-block">
     <div class="twcss-relative twcss-bg-black twcss-text-white twcss-text-sm">
       <div class="twcss-container twcss-flex twcss-justify-between twcss-items-center twcss-bg-black">
+
         <div>{{ block.settings.text }}</div>
 
         <div>
           <div class="twcss-flex twcss-justify-end twcss-items-center twcss-gap-8">
             {% if block.settings.link %}
               <div class="">
-                <a href="{{ block.settings.link }}">{{ block.settings.link-text }}</a>
+                <a href="{{ block.settings.link }}" {% if block.settings.external-link %} target="_blank" {% endif %} class="hover:twcss-underline">{{ block.settings.link-text }}</a>
               </div>
             {% endif %}
-            <div class="">
-              <a href="/account">Account</a>
-            </div>
-            <div class="">
-              <a href="/contact">
-                <button class="twcss-bg-brand-yellow twcss-px-4 twcss-py-2 twcss-text-core-black">Trade account</button>
-              </a>
-            </div>
+            {% if block.settings.link-2 %}
+              <div class="">
+                <a href="{{ block.settings.link-2 }}" {% if block.settings.external-link-2 %} target="_blank" {% endif %} class="hover:twcss-underline">{{ block.settings.link-text-2 }}</a>
+              </div>
+            {% endif %}
+            {% if block.settings.button-link %}
+              <div class="">
+                <a href="{{ block.settings.button-link }}" {% if block.settings.external-button-link %} target="_blank" {% endif %}>
+                  <button class="twcss-bg-brand-yellow twcss-px-4 twcss-py-2 twcss-text-core-black hover:twcss-text-core-white">{{ block.settings.button-link-text }}</button>
+                </a>
+              </div>
+            {% endif %}
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -54,6 +60,12 @@
           "label": "First Link text"
         },
         {
+          "type": "checkbox",
+          "id": "external-link",
+          "label": "Open in new window",
+          "default": false
+        },
+        {
           "type": "url",
           "id": "link-2",
           "label": "Second Link"
@@ -62,6 +74,28 @@
           "type": "text",
           "id": "link-text-2",
           "label": "Second Link text"
+        },
+        {
+          "type": "checkbox",
+          "id": "external-link-2",
+          "label": "Open in new window",
+          "default": false
+        },
+        {
+          "type": "url",
+          "id": "button-link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "button-link-text",
+          "label": "Button Link text"
+        },
+        {
+          "type": "checkbox",
+          "id": "external-button-link",
+          "label": "Open in new window",
+          "default": false
         }
       ]
     }

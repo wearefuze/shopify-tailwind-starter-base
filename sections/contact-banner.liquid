@@ -4,7 +4,7 @@
       <!-- empty -->
     </div>
     <div class="twcss-overflow-hidden">
-      <img src="{{ section.settings.contact_banner_image.src | img_url: "medium" }}" alt="map" class="twcss-object-cover twcss-w-full">
+      {{ section.settings.contact_banner_image | image_url: width: 1200 | image_tag }}
     </div>
   </div>
 

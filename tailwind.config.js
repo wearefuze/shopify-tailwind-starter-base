@@ -27,6 +27,7 @@ module.exports = {
         'core-white': '#ffffff',
         'core-black': '#000000',
         'brand-yellow': '#e2ad3b',
+        'brand-lightgrey': '#F5F5F5',
         'brand-grey': '#666768',
         'brand-midgrey': '#424242',
         'brand-darkgrey': '#3d3d3d',

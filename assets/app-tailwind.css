@@ -140,3 +140,28 @@ video {
 .banner-body-copy p:last-of-type {
   @apply twcss-pb-0;
 }
+
+form#ContactForm {
+  .field__label,
+  .customer .field label {
+    @apply twcss-text-xl;
+  }
+
+  .field__input,
+  .customer .field input {
+    @apply twcss-p-4;
+  }
+}
+
+.rte p {
+  @apply twcss-pb-4;
+}
+
+.rte p:last-of-type {
+  @apply twcss-pb-0;
+}
+
+.rte ol {
+  list-style: decimal;
+  padding-bottom: 1rem;
+}

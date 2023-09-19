@@ -12,24 +12,34 @@
       "type": "contact-banner",
       "settings": {
         "contact_banner_title": "Where to find us",
-        "contact_banner_body": "<p>Unit 9, Opus Business Park, <br\/>1 Wheaton Rd,  Witham CM8 3UJ<\/p><p>Mon - Fri 08:00 - 17:00<br\/>Sat - 09:00 - 16:00<br\/>Sun - Closed<br\/>Bank Holidays - Closed<\/p><p><a href=\"mailto:sales@cmflooringsupplies.co.uk\" title=\"mailto:sales@cmflooringsupplies.co.uk\">sales@cmflooringsupplies.co.uk<\/a><br\/>07984 618727<\/p>",
-        "contact_banner_image": "shopify:\/\/shop_images\/map.jpg"
+        "contact_banner_body": "<p>Unit 9, Opus Business Park, <br\/>1 Wheaton Rd,  Witham CM8 3UJ<\/p><p>Mon - Fri 08:00 - 17:00<br\/>Sat - 09:00 - 16:00<br\/>Sun - Closed<br\/>Bank Holidays - Closed<\/p><p><a href=\"mailto:sales@cmflooringsupplies.co.uk\" title=\"mailto:sales@cmflooringsupplies.co.uk\">sales@cmflooringsupplies.co.uk<\/a><br\/><a href=\"tel:+4401376 316444\" title=\"tel:+4401376 316444\">01376 316444<\/a><\/p>",
+        "contact_banner_image": "shopify:\/\/shop_images\/347243873_142305632093830_9109169200101331990_n.jpg"
       }
     },
     "form": {
       "type": "contact-form",
       "settings": {
-        "heading": "",
+        "heading": "Send us your enquiry",
         "heading_size": "h1",
         "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": "twcss-pt-16",
+        "padding_bottom": "twcss-pb-16"
+      }
+    },
+    "15bf8888-e881-43e5-a24f-1484d53bc5e0": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m14!1m8!1m3!1d9869.511853237882!2d0.6487087!3d51.7992541!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8e5db6897390d%3A0xc43a229cf616eed!2sCM%20Flooring%20Supplies%20Ltd!5e0!3m2!1sen!2suk!4v1695111668167!5m2!1sen!2suk\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
   "order": [
     "main",
     "4997049d-3951-4db1-b88f-01a9c0e1a46e",
-    "form"
+    "form",
+    "15bf8888-e881-43e5-a24f-1484d53bc5e0"
   ]
 }
