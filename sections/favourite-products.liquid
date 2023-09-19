@@ -1,5 +1,5 @@
-<div class="twcss-container twcss-py-8">
-	<h2 class="twcss-text-xl">{{ section.settings.heading }}</h2>
+<div class="twcss-container {{ section.settings.padding_top }} {{ section.settings.padding_bottom }}">
+	<h2 class="twcss-text-xl twcss-font-black twcss-text-[24px] twcss-pb-4">{{ section.settings.heading }}</h2>
 	<div class="twcss-grid twcss-grid-cols-2 lg:twcss-grid-cols-4 twcss-gap-8">
 
 		{% for block in section.blocks  %}
@@ -12,7 +12,7 @@
 					<div class="twcss-p-4">
 						<div class="twcss-text-sm twcss-uppercase twcss-text-gray-300">{{ product.collections[0].title }}</div>
 						<div class="twcss-text-base twcss-font-bold twcss-pt-2 twcss-pb-4">{{ product.title }}</div>
-						<div class="twcss-text-base twcss-font-bold">{{ product.price | money_with_currency }} <span class="twcss-text-xs twcss-font-light">{{ product.unit_price_measurement.quantity_value }}{{ product.unit_price_measurement.quantity_unit }}</span></div>
+						<div class="twcss-text-base twcss-font-bold">{{ product.price | money }} <span class="twcss-text-xs twcss-font-light">{{ product.unit_price_measurement.quantity_value }}{{ product.unit_price_measurement.quantity_unit }}</span></div>
 					</div>
 					</a>
 			</div>
@@ -35,7 +35,61 @@
 			"id": "heading",
 			"label": "Heading",
 			"default": "Customer Favourites"
-		}
+		},
+		{
+			"type": "select",
+			"id": "padding_top",
+			"label": "Padding Top",
+			"options": [
+        {
+          "value": "twcss-pt-0",
+          "label": "None"
+        },
+				{
+					"value": "twcss-pt-4",
+					"label": "1 rem"
+				},
+        {
+          "value": "twcss-pt-8",
+          "label": "2 rem"
+        },
+        {
+          "value": "twcss-pt-12",
+          "label": "3 rem"
+        },
+        {
+          "value": "twcss-pt-16",
+          "label": "4 rem"
+        }
+			]
+		},
+    {
+      "type": "select",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "options": [
+        {
+          "value": "twcss-pb-0",
+          "label": "None"
+        },
+        {
+          "value": "twcss-pb-4",
+          "label": "1 rem"
+        },
+        {
+          "value": "twcss-pb-8",
+          "label": "2 rem"
+        },
+        {
+          "value": "twcss-pb-12",
+          "label": "3 rem"
+        },
+        {
+          "value": "twcss-pb-16",
+          "label": "4 rem"
+        }
+      ]
+    }
 	],
   "max_blocks": 4,
   "blocks": [

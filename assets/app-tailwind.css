@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800&display=swap');
 
 html {
-  @apply twcss-font-redhat;
+  @apply twcss-font-serif;
 }
 
 a,
@@ -126,4 +126,17 @@ video {
 
 .mobile-facets__inner {
   @apply !twcss-bg-core-white;
+}
+
+.add-to-cart-container {
+  button.addToCartCustomButton {
+    @apply twcss-w-full twcss-py-4 twcss-flex twcss-justify-center twcss-items-center twcss-bg-brand-blue twcss-text-white;
+  }
+}
+
+.banner-body-copy p {
+  @apply twcss-pb-4;
+}
+.banner-body-copy p:last-of-type {
+  @apply twcss-pb-0;
 }

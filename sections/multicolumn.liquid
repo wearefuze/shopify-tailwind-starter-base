@@ -1,4 +1,4 @@
-<section class="twcss-container twcss-py-16">
+<section class="twcss-container {{ section.settings.padding_top }} {{ section.settings.padding_bottom }}">
 
   <div class="twcss-grid twcss-grid-cols-{{ section.settings.columns_mobile }} lg:twcss-grid-cols-{{ section.settings.columns_desktop }} twcss-gap-8">
     {%- for block in section.blocks -%}
@@ -56,6 +56,60 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "select",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "options": [
+        {
+          "value": "twcss-pt-0",
+          "label": "None"
+        },
+        {
+          "value": "twcss-pt-4",
+          "label": "1 rem"
+        },
+        {
+          "value": "twcss-pt-8",
+          "label": "2 rem"
+        },
+        {
+          "value": "twcss-pt-12",
+          "label": "3 rem"
+        },
+        {
+          "value": "twcss-pt-16",
+          "label": "4 rem"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "options": [
+        {
+          "value": "twcss-pb-0",
+          "label": "None"
+        },
+        {
+          "value": "twcss-pb-4",
+          "label": "1 rem"
+        },
+        {
+          "value": "twcss-pb-8",
+          "label": "2 rem"
+        },
+        {
+          "value": "twcss-pb-12",
+          "label": "3 rem"
+        },
+        {
+          "value": "twcss-pb-16",
+          "label": "4 rem"
+        }
+      ]
+    },
     {
       "type": "inline_richtext",
       "id": "title",

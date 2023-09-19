@@ -1,4 +1,4 @@
-<div class="twcss-container twcss-py-16">
+<div class="twcss-container {{ section.settings.padding_top }} {{ section.settings.padding_bottom }}">
   <div class="twcss-rounded-lg twcss-bg-brand-darkgrey twcss-grid twcss-grid-cols-1 md:twcss-grid-cols-2 lg:twcss-grid-cols-3 ">
     <div class="twcss-col-span-1 twcss-flex twcss-items-center twcss-justify-center">
       <div class="twcss-text-white twcss-px-16">
@@ -27,6 +27,60 @@
   {
     "name": "Feature Block",
     "settings": [
+      {
+        "type": "select",
+        "id": "padding_top",
+        "label": "Padding Top",
+        "options": [
+          {
+            "value": "twcss-pt-0",
+            "label": "None"
+          },
+          {
+            "value": "twcss-pt-4",
+            "label": "1 rem"
+          },
+          {
+            "value": "twcss-pt-8",
+            "label": "2 rem"
+          },
+          {
+            "value": "twcss-pt-12",
+            "label": "3 rem"
+          },
+          {
+            "value": "twcss-pt-16",
+            "label": "4 rem"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "padding_bottom",
+        "label": "Padding Bottom",
+        "options": [
+          {
+            "value": "twcss-pb-0",
+            "label": "None"
+          },
+          {
+            "value": "twcss-pb-4",
+            "label": "1 rem"
+          },
+          {
+            "value": "twcss-pb-8",
+            "label": "2 rem"
+          },
+          {
+            "value": "twcss-pb-12",
+            "label": "3 rem"
+          },
+          {
+            "value": "twcss-pb-16",
+            "label": "4 rem"
+          }
+        ]
+      },
       {
         "type": "text",
         "id": "title",

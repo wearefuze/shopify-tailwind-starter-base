@@ -46,7 +46,7 @@
         "da4468fa-c415-46ec-8d1d-3d5959dc247b": {
           "type": "usp",
           "settings": {
-            "usp_icon": "shopify:\/\/shop_images\/hammer_7490fcca-772c-44d9-8da6-26fcb6d1b244.svg",
+            "usp_icon": "shopify:\/\/shop_images\/usp-icon-hammer.svg",
             "usp_title": "Supply and Fit",
             "usp_text": "Home measure available"
           }
@@ -54,7 +54,7 @@
         "02d6d33d-037b-4496-9a79-b177d5aa0605": {
           "type": "usp",
           "settings": {
-            "usp_icon": "shopify:\/\/shop_images\/truck.svg",
+            "usp_icon": "shopify:\/\/shop_images\/usp-icon-van.svg",
             "usp_title": "Free national delivery",
             "usp_text": "On orders over £250"
           }
@@ -62,7 +62,7 @@
         "dbf8876a-54e0-4c4b-86a6-ffdf14e1283e": {
           "type": "usp",
           "settings": {
-            "usp_icon": "shopify:\/\/shop_images\/pound.svg",
+            "usp_icon": "shopify:\/\/shop_images\/usp-icon-cash.svg",
             "usp_title": "Unbeatable prices",
             "usp_text": "Internet price in Witham, Essex"
           }
@@ -70,7 +70,7 @@
         "081e8206-975a-4983-ad2b-c28a82d30a01": {
           "type": "usp",
           "settings": {
-            "usp_icon": "shopify:\/\/shop_images\/pound_9a2112b8-eca7-430c-a146-815b4680c9fa.svg",
+            "usp_icon": "shopify:\/\/shop_images\/usp-icon-samples.svg",
             "usp_title": "Free samples",
             "usp_text": "Order free samples now"
           }
@@ -83,7 +83,7 @@
         "081e8206-975a-4983-ad2b-c28a82d30a01"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/hammer_d22018cd-172e-4b0b-ad5e-eea392e1f18c.svg"
+        "image": "shopify:\/\/shop_images\/usp-icon-van.svg"
       }
     },
     "trustpilot_simple_widget": {
@@ -134,39 +134,39 @@
     "2321a3a9-0cb0-452e-a23e-6e9989a4fc72": {
       "type": "favourite-products",
       "blocks": {
-        "cbfcd3b5-ac2d-438e-990c-b98487b11fe3": {
+        "0af3400a-6421-4e1c-b1ab-74236bb9e10b": {
           "type": "column",
           "settings": {
-            "product": "satino-exquisite"
+            "product": "wheaton-twist"
           }
         },
-        "737fcddb-f3b8-4574-9db6-b68068b9cb01": {
+        "dd934869-abc1-43a7-917b-5459219a2506": {
           "type": "column",
           "settings": {
-            "product": "satino-exquisite"
+            "product": "zeezoo-straight-plank"
           }
         },
-        "8c8ef574-b8a0-48f2-ad5c-3f95fbfa9957": {
+        "10755dba-1776-4989-82b7-7a5d403fe52c": {
           "type": "column",
           "settings": {
-            "product": "satino-exquisite"
+            "product": "serendipity"
           }
         },
-        "e939f917-32ae-41d4-9677-6d9288e1484b": {
+        "4ff2b955-6aca-4be6-9771-430122bb7cc9": {
           "type": "column",
           "settings": {
-            "product": "satino-exquisite"
+            "product": "rustic-textures"
           }
         }
       },
       "block_order": [
-        "cbfcd3b5-ac2d-438e-990c-b98487b11fe3",
-        "737fcddb-f3b8-4574-9db6-b68068b9cb01",
-        "8c8ef574-b8a0-48f2-ad5c-3f95fbfa9957",
-        "e939f917-32ae-41d4-9677-6d9288e1484b"
+        "0af3400a-6421-4e1c-b1ab-74236bb9e10b",
+        "dd934869-abc1-43a7-917b-5459219a2506",
+        "10755dba-1776-4989-82b7-7a5d403fe52c",
+        "4ff2b955-6aca-4be6-9771-430122bb7cc9"
       ],
       "settings": {
-        "heading": "Customer Favourites"
+        "heading": "Flooring loved by our customers"
       }
     },
     "b9ffc1e4-0d47-4510-b507-549f647e679d": {
@@ -184,23 +184,23 @@
             "product": "satino-exquisite"
           }
         },
-        "09ba8c90-52d4-4345-ba38-d1672064e481": {
+        "247d28fb-c182-4cc6-9181-195577238b23": {
           "type": "column",
           "settings": {
-            "product": "satino-exquisite"
+            "product": "carpet-stretcher"
           }
         }
       },
       "block_order": [
         "e4e915d7-c826-404a-8b58-fad0f0c7f065",
         "5ac60a67-56be-4dd6-b5a4-aa01c3277673",
-        "09ba8c90-52d4-4345-ba38-d1672064e481"
+        "247d28fb-c182-4cc6-9181-195577238b23"
       ],
       "settings": {
         "title": "Shop Clearance",
         "discount": 50,
         "subtitle": "Save £££s compared to other retailers",
-        "link": ""
+        "link": "shopify:\/\/collections\/clearance"
       }
     },
     "30c26edf-2c5b-47c9-bcdd-18fa13b7793b": {

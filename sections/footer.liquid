@@ -132,22 +132,23 @@
       </div>
     </div>
   </div>
-  <div class="twcss-container">
-    <div class="footer__copyright caption">
-      <small class="copyright__content">&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}</small>
-      {%- if section.settings.show_policy -%}
-        <ul class="policies list-unstyled">
-          {%- for policy in shop.policies -%}
-            {%- if policy != blank -%}
-              <li>
-                <small class="copyright__content"
-                ><a href="{{ policy.url }}">{{ policy.title }}</a></small
-                >
-              </li>
-            {%- endif -%}
-          {%- endfor -%}
-        </ul>
-      {%- endif -%}
+
+  <div class="twcss-container twcss-flex twcss-justify-between twcss-border-t twcss-mt-16 twcss-pt-4 twcss-pb-8">
+    <div class="twcss-min-w-fit">
+      <div class="twcss-flex twcss-justify-start twcss-divide-x">
+        {%- for policy in shop.policies -%}
+          {%- if policy != blank -%}
+            <div class="twcss-px-2 twcss-min-w-fit twcss-text-gray-400">
+              <a href="{{ policy.url }}">{{ policy.title }}</a>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <div class="twcss-flex twcss-justify-start twcss-pt-4">
+        <div>
+          <div class="twcss-text-sm twcss-text-gray-400">&copy; {{ 'now' | date: '%Y' }} {{ shop.name | link_to: routes.root_url -}}&nbsp;- crafted by <a href="https://fuzeagency.co.uk">FUZE</a></div>
+        </div>
+      </div>
     </div>
     <div class="footer__column footer__column--info">
       {%- if section.settings.payment_enable -%}

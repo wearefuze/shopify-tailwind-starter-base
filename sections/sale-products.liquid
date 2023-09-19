@@ -1,37 +1,112 @@
-<div class="twcss-container twcss-py-8 twcss-bg-brand-red twcss-text-white twcss-p-16 twcss-bg-cover twcss-rounded-lg" style="background-image: url('{{ 'bg-red.jpg' | asset_url }}')">
-  <div class="twcss-grid twcss-grid-cols-1 md:twcss-grid-cols-2 lg:twcss-grid-cols-3 twcss-gap-4">
-    <div class="twcss-text-center">
-      <div class="twcss-text-base">{{ section.settings.title }}</div>
-      <div class="twcss-text-3xl twcss-font-bold">{{ section.settings.discount }}% off</div>
-      <div class="twcss-text-base twcss-font-bold">{{ section.settings.subtitle }}</div>
-    </div>
-    <div class="twcss-col-span-1 lg:twcss-col-span-2">
-      <div class="twcss-grid twcss-grid-cols-1 md:twcss-grid-cols-2 lg:twcss-grid-cols-3 twcss-gap-4">
-        {% for block in section.blocks %}
-          {% assign product = block.settings.product %}
-          <div class="twcss-bg-white twcss-text-core-black">
-            <a href="{{ product.url }}">
-              <div class="twcss-aspect-square twcss-pb-2">
-                {{ product.featured_media | image_url: width: 900 | image_tag: loading: lazy, class: 'twcss-aspect-square twcss-object-cover' }}
-              </div>
-              <div class="twcss-py-8 twcss-px-4">
-                <div class="twcss-text-sm twcss-uppercase twcss-text-gray-300">{{ product.collections[0].title }}</div>
-                <div class="twcss-text-base twcss-font-bold twcss-pt-2 twcss-pb-4">{{ product.title }}</div>
-                <div class="twcss-text-base twcss-font-bold">{{ product.price | money_with_currency }} <span class="twcss-text-xs twcss-font-light">{{ product.unit_price_measurement.quantity_value }}{{ product.unit_price_measurement.quantity_unit }}</span></div>
-              </div>
-              </a>
+<div class="{{ section.settings.padding_top }} {{ section.settings.padding_bottom }}">
+  <div class="twcss-container twcss-py-8 twcss-bg-brand-red twcss-text-white twcss-p-16 twcss-bg-cover twcss-rounded-lg" style="background-image: url('{{ 'bg-red.jpg' | asset_url }}')">
+    <div class="twcss-grid twcss-grid-cols-1 md:twcss-grid-cols-2 lg:twcss-grid-cols-3 twcss-gap-4">
+      <div class="twcss-text-center twcss-flex twcss-items-center h-full twcss-justify-center">
+        <div>
+          <div class="twcss-text-base twcss-uppercase twcss-text-lg">{{ section.settings.title }}</div>
+          <div class="twcss-flex twcss-justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="291" height="205" viewBox="0 0 291 205">
+              <g id="Group_11" data-name="Group 11" transform="translate(-236 -1760)">
+                <text id="_" data-name="%" transform="translate(433 1881)" fill="#fff" font-size="105" font-family="Helvetica-Bold, Helvetica" font-weight="700" letter-spacing="0.025em"><tspan x="0" y="0">%</tspan></text>
+                <text id="OFF" transform="translate(428 1916)" fill="#fff" font-size="45" font-family="RedHatDisplay-Bold, Red Hat Display" font-weight="700"><tspan x="0" y="0">OFF</tspan></text>
+                <text id="_50" data-name="50" transform="translate(236 1918)" fill="#fff" font-size="155" font-family="RedHatDisplay-Bold, Red Hat Display" font-weight="700" letter-spacing="-0.025em"><tspan x="0" y="0">{{ section.settings.discount }}</tspan></text>
+                <text id="_upto" data-name=" upto" transform="translate(282 1822)" fill="#de4c51" font-size="9" font-family="RedHatDisplay-Medium, Red Hat Display" font-weight="500" letter-spacing="0.05em"><tspan x="0" y="0" xml:space="preserve"> UPTO</tspan></text>
+              </g>
+            </svg>
           </div>
-        {% endfor %}
+          <div class="twcss-text-base twcss-font-bold">{{ section.settings.subtitle }}</div>
+          {% if section.settings.link %}
+            <div class="twcss-pt-12">
+              <a class="twcss-border-2 twcss-rounded-md twcss-px-12 twcss-py-4 twcss-font-bold hover:twcss-bg-white hover:twcss-text-brand-darkgrey" href="{{ section.settings.link.url }}">View all</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="twcss-col-span-1 lg:twcss-col-span-2">
+        <div class="twcss-grid twcss-grid-cols-1 md:twcss-grid-cols-2 lg:twcss-grid-cols-3 twcss-gap-4">
+          {% for block in section.blocks %}
+            {% assign product = block.settings.product %}
+            <div class="twcss-bg-white twcss-text-core-black">
+              <a href="{{ product.url }}">
+                <div class="twcss-aspect-square twcss-pb-2">
+                  {{ product.featured_media | image_url: width: 900 | image_tag: loading: lazy, class: 'twcss-aspect-square twcss-object-cover' }}
+                </div>
+                <div class="twcss-py-8 twcss-px-4">
+                  <div class="twcss-text-sm twcss-uppercase twcss-text-gray-300">{{ product.collections[0].title }}</div>
+                  <div class="twcss-text-base twcss-font-bold twcss-pt-2 twcss-pb-4 twcss-text-lg">{{ product.title }}</div>
+                  {% if product.compare_at_price > product.price %}
+                    <div class="twcss-text-brand-grey"><sup class="twcss-uppercase twcss-pr-2">WAS</sup><s>{{ product.compare_at_price | money }}</s></div>
+                    <div class="twcss-text-red-600 twcss-font-bold"><sup class="twcss-uppercase twcss-pr-2">Now</sup>{{ product.price | money }} <span class="twcss-text-xs twcss-font-light">{{ product.unit_price_measurement.quantity_value }}{{ product.unit_price_measurement.quantity_unit }}</span></div>
+                  {% else %}
+                    <div class="twcss-text-base twcss-font-bold">{{ product.price | money }} <span class="twcss-text-xs twcss-font-light">{{ product.unit_price_measurement.quantity_value }}{{ product.unit_price_measurement.quantity_unit }}</span></div>
+                  {% endif %}
+                </div>
+                </a>
+            </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
-
   </div>
-
 </div>
 {% schema %}
   {
     "name": "Sale products",
     "settings": [
+      {
+        "type": "select",
+        "id": "padding_top",
+        "label": "Padding Top",
+        "options": [
+          {
+            "value": "twcss-pt-0",
+            "label": "None"
+          },
+          {
+            "value": "twcss-pt-4",
+            "label": "1 rem"
+          },
+          {
+            "value": "twcss-pt-8",
+            "label": "2 rem"
+          },
+          {
+            "value": "twcss-pt-12",
+            "label": "3 rem"
+          },
+          {
+            "value": "twcss-pt-16",
+            "label": "4 rem"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "padding_bottom",
+        "label": "Padding Bottom",
+        "options": [
+          {
+            "value": "twcss-pb-0",
+            "label": "None"
+          },
+          {
+            "value": "twcss-pb-4",
+            "label": "1 rem"
+          },
+          {
+            "value": "twcss-pb-8",
+            "label": "2 rem"
+          },
+          {
+            "value": "twcss-pb-12",
+            "label": "3 rem"
+          },
+          {
+            "value": "twcss-pb-16",
+            "label": "4 rem"
+          }
+        ]
+      },
       {
         "type": "text",
         "id": "title",
@@ -41,8 +116,8 @@
       {
         "type": "number",
         "id": "discount",
-		"label": "Discount Percent Amount",
-		"default": 50
+        "label": "Discount Percent Amount",
+        "default": 50
       },
       {
         "type": "text",

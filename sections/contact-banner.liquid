@@ -1,23 +1,29 @@
-<div class="twcss-full twcss-h-80 relative">
-  <div class="twcss-grid twcss-grid-cols-1 lg:twcss-grid-cols-2">
+<div class="twcss-w-full twcss-relative twcss-bg-brand-blue twcss-overflow-hidden">
+  <div class="twcss-hidden twcss-absolute lg:twcss-grid twcss-grid-cols-2  twcss-w-full twcss-h-full twcss-top-0">
     <div>
-      <div class="lg:twcss-hidden twcss-py-8">
-        <h1>{{ contact_banner_title }}</h1>
-        <div>{{ contact_banner_body }}</div>
-        <div>{% render 'social-icons' %}</div>
+      <!-- empty -->
+    </div>
+    <div class="twcss-overflow-hidden">
+      <img src="{{ section.settings.contact_banner_image.src | img_url: "medium" }}" alt="map" class="twcss-object-cover twcss-w-full">
+    </div>
+  </div>
+
+  <div class="twcss-relative twcss-z-10 twcss-w-full">
+    <div class="twcss-container">
+      <div class="twcss-grid twcss-grid-cols-2">
+        <div class="twcss-pb-16">
+          <div class="twcss-pt-4 twcss-pb-8 twcss-uppercase">{{ 'Home' | link_to: '/', class: 'hover:twcss-underline' }} > {{ page_title }}</div>
+          <h1 class="twcss-font-bold twcss-text-[28px]">{{ section.settings.contact_banner_title }}</h1>
+          <div class="twcss-pt-8 banner-body-copy">{{ section.settings.contact_banner_body }}</div>
+          <div class="twcss-pt-4">{% render 'social-icons' %}</div>
+        </div>
+        <div>
+          <!-- empty -->
+        </div>
       </div>
     </div>
-    <div>
-      <img src="{{ block.settings.contact_banner_image.src | img_url: "medium" }}" alt="map" class="twcss-object-cover">
-    </div>
   </div>
-  <div class="twcss-absolute twcss-w-full twcss-h-full twcss-flex twcss-items-center twcss-hidden lg:twcss-block">
-    <div>
-      <h1>{{ block.settings.contact_banner_title }}</h1>
-      <div>{{ block.settings.contact_banner_body }}</div>
-      <div>{% render 'social-icons' %}</div>
-    </div>
-  </div>
+
 </div>
 
 {% schema %}
