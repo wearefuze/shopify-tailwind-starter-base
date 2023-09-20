@@ -14,17 +14,42 @@
 {{ 'component-pagination.css' | asset_url | stylesheet_tag }}
 
 {%- if paginate.parts.size > 0 -%}
-  <div class="pagination-wrapper">
-    <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
-      <ul class="pagination__list list-unstyled" role="list">
+
+
+  {% comment %}<nav class="twcss-isolate twcss-inline-flex -twcss-space-x-px twcss-rounded-md twcss-shadow-sm" aria-label="Pagination">{% endcomment %}
+    {% comment %}<a href="#" class="twcss-relative twcss-inline-flex twcss-items-center twcss-rounded-l-md twcss-px-2 twcss-py-2 twcss-text-gray-400 twcss-ring-1 twcss-ring-inset twcss-ring-gray-300 twcss-hover:bg-gray-50 twcss-focus:z-20 twcss-focus:outline-offset-0">{% endcomment %}
+      {% comment %}<span class="twcss-sr-only visually-hidden">Previous</span>{% endcomment %}
+      {% comment %}<svg class="twcss-h-5 twcss-w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">{% endcomment %}
+        {% comment %}<path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />{% endcomment %}
+      {% comment %}</svg>{% endcomment %}
+    {% comment %}</a>{% endcomment %}
+    {% comment %}<!-- Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" -->{% endcomment %}
+    {% comment %}<a href="#" aria-current="page" class="twcss-relative twcss-z-10 twcss-inline-flex twcss-items-center twcss-bg-indigo-600 twcss-px-4 twcss-py-2 twcss-text-sm twcss-font-semibold twcss-text-white twcss-focus:z-20 twcss-focus-visible:outline twcss-focus-visible:outline-2 twcss-focus-visible:outline-offset-2 twcss-focus-visible:outline-indigo-600">1</a>{% endcomment %}
+    {% comment %}<a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">2</a>{% endcomment %}
+    {% comment %}<a href="#" class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">3</a>{% endcomment %}
+    {% comment %}<span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>{% endcomment %}
+    {% comment %}<a href="#" class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">8</a>{% endcomment %}
+    {% comment %}<a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">9</a>{% endcomment %}
+    {% comment %}<a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">10</a>{% endcomment %}
+    {% comment %}<a href="#" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">{% endcomment %}
+      {% comment %}<span class="sr-only">Next</span>{% endcomment %}
+      {% comment %}<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">{% endcomment %}
+        {% comment %}<path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />{% endcomment %}
+      {% comment %}</svg>{% endcomment %}
+    {% comment %}</a>{% endcomment %}
+  {% comment %}</nav>{% endcomment %}
+
+
+  <div class="twcss-pt-16">
+    <nav class="paginationxx" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
+      <ul class="pagination__listxx list-unstyled twcss-isolate twcss-flex twcss-justify-center twcss-gap-4 twcss-rounded-md" role="list">
         {%- if paginate.previous -%}
           <li>
-            <a
-              href="{{ paginate.previous.url }}{{ anchor }}"
-              class="pagination__item pagination__item--next pagination__item-arrow link motion-reduce"
-              aria-label="{{ 'general.pagination.previous' | t }}"
-            >
-              {% render 'icon-caret' %}
+            <a href="{{ paginate.previous.url }}{{ anchor }}" class="twcss-relative twcss-inline-flex twcss-items-center twcss-rounded-l-md twcss-px-2 twcss-py-2 twcss-text-gray-400 twcss-ring-1 twcss-ring-inset twcss-ring-gray-300 hover:twcss-bg-brand-blue focus:twcss-z-20 focus:twcss-outline-offset-0" aria-label="{{ 'general.pagination.previous' | t }}">
+              <span class="twcss-sr-only visually-hidden">Previous</span>
+              <svg class="twcss-h-5 twcss-w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+              </svg>
             </a>
           </li>
         {%- endif -%}
@@ -32,24 +57,10 @@
         {%- for part in paginate.parts -%}
           <li>
             {%- if part.is_link -%}
-              <a
-                href="{{ part.url }}{{ anchor }}"
-                class="pagination__item link"
-                aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
-              >
-                {{- part.title -}}
-              </a>
+              <a href="{{ part.url }}{{ anchor }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}" class="twcss-relative twcss-inline-flex twcss-items-center twcss-px-4 twcss-py-2 twcss-text-sm twcss-font-semibold twcss-text-gray-900 twcss-ring-1 twcss-ring-inset twcss-ring-gray-300 hover:twcss-bg-brand-blue focus:twcss-z-20 focus:twcss-outline-offset-0">{{- part.title -}}</a>
             {%- else -%}
               {%- if part.title == paginate.current_page -%}
-                <a
-                  role="link"
-                  aria-disabled="true"
-                  class="pagination__item pagination__item--current light"
-                  aria-current="page"
-                  aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
-                >
-                  {{- part.title -}}
-                </a>
+                <a role="link" aria-disabled="true" aria-current="page" aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}" class="twcss-relative twcss-z-10 twcss-inline-flex twcss-items-center twcss-bg-brand-blue twcss-px-4 twcss-py-2 twcss-text-sm twcss-font-semibold twcss-text-white twcss-focus:z-20 twcss-focus-visible:outline twcss-focus-visible:outline-2 twcss-focus-visible:outline-offset-2 twcss-focus-visible:outline-indigo-600">{{- part.title -}}</a>
               {%- else -%}
                 <span class="pagination__item">{{ part.title }}</span>
               {%- endif -%}
@@ -59,12 +70,11 @@
 
         {%- if paginate.next -%}
           <li>
-            <a
-              href="{{ paginate.next.url }}{{ anchor }}"
-              class="pagination__item pagination__item--prev pagination__item-arrow link motion-reduce"
-              aria-label="{{ 'general.pagination.next' | t }}"
-            >
-              {%- render 'icon-caret' -%}
+            <a href="{{ paginate.next.url }}{{ anchor }}" aria-label="{{ 'general.pagination.next' | t }}" class="twcss-relative twcss-inline-flex twcss-items-center twcss-rounded-r-md twcss-px-2 twcss-py-2 twcss-text-gray-400 twcss-ring-1 twcss-ring-inset twcss-ring-gray-300 hover:twcss-bg-brand-blue focus:twcss-z-20 focus:twcss-outline-offset-0">
+              <span class="twcss-sr-only">Next</span>
+              <svg class="twcss-h-5 twcss-w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+              </svg>
             </a>
           </li>
         {%- endif -%}

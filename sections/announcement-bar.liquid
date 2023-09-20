@@ -1,21 +1,21 @@
 {%- for block in section.blocks -%}
 
-  <div  class="twcss-hidden lg:twcss-block">
+  <div  class="twcss-hidden lg:twcss-block" x-data="{ showMenu: false, showClearance: false }">
     <div class="twcss-relative twcss-bg-black twcss-text-white twcss-text-sm">
       <div class="twcss-container twcss-flex twcss-justify-between twcss-items-center twcss-bg-black">
 
-        <div>{{ block.settings.text }}</div>
+        <div>
+          {% if block.settings.link %}
+              <a href="{{ block.settings.link }}" {% if block.settings.external-link %} target="_blank" {% endif %} class="hover:twcss-underline">{{ block.settings.link-text }}</a>
+          {% endif %}
+        </div>
 
         <div>
-          <div class="twcss-flex twcss-justify-end twcss-items-center twcss-gap-8">
-            {% if block.settings.link %}
-              <div class="">
-                <a href="{{ block.settings.link }}" {% if block.settings.external-link %} target="_blank" {% endif %} class="hover:twcss-underline">{{ block.settings.link-text }}</a>
-              </div>
-            {% endif %}
-            {% if block.settings.link-2 %}
-              <div class="">
-                <a href="{{ block.settings.link-2 }}" {% if block.settings.external-link-2 %} target="_blank" {% endif %} class="hover:twcss-underline">{{ block.settings.link-text-2 }}</a>
+          <div class="twcss-flex twcss-justify-end twcss-items-center">
+
+            {% if block.settings.show-clearance == true %}
+              <div class="twcss-relative twcss-px-4 twcss-py-2 twcss-top-0 twcss-group twcss-overflow-hidden twcss-font-medium twcss-bg-brand-red hover:twcss-cursor-pointer hover:twcss-brightness-125" @click="showClearance = !showClearance">
+                <span class="twcss-relative twcss-text-core-white">Clearance</span>
               </div>
             {% endif %}
             {% if block.settings.button-link %}
@@ -28,6 +28,11 @@
           </div>
         </div>
 
+      </div>
+    </div>
+    <div x-cloak x-show="showClearance" x-transition.duration.300ms class="twcss-bg-brand-red">
+      <div class="twcss-container twcss-flex twcss-justify-center">
+        <a class="twcss-text-core-white twcss-py-4 hover:twcss-underline twcss-transition-all twcss-duration-300" href="{{ block.settings.clearance-banner-link }}">{{ block.settings.clearance-banner-text }}</a>
       </div>
     </div>
   </div>
@@ -43,12 +48,6 @@
       "type": "announcement",
       "name": "t:sections.announcement-bar.blocks.announcement.name",
       "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "default": "Welcome to our store",
-          "label": "Announcement text"
-        },
         {
           "type": "url",
           "id": "link",
@@ -66,20 +65,20 @@
           "default": false
         },
         {
-          "type": "url",
-          "id": "link-2",
-          "label": "Second Link"
+          "type": "checkbox",
+          "id": "show-clearance",
+          "default": false,
+          "label": "Show Clearance Banner"
         },
         {
           "type": "text",
-          "id": "link-text-2",
-          "label": "Second Link text"
+          "id": "clearance-banner-text",
+          "label": "Clearance Banner Text"
         },
         {
-          "type": "checkbox",
-          "id": "external-link-2",
-          "label": "Open in new window",
-          "default": false
+          "type": "url",
+          "id": "clearance-banner-link",
+          "label": "Clearance Link"
         },
         {
           "type": "url",

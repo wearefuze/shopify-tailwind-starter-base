@@ -35,12 +35,12 @@
       {% if card_product.featured_media %}
         {% assign image_class = '' %}
         {% if card_product.media[1] != blank %}
-          {% assign image_class = image_class | append: 'group-hover:hidden object-cover aspect-square' %}
+          {% assign image_class = image_class | append: 'group-hover:twcss-hidden twcss-object-cover twcss-aspect-square twcss-transition-all twcss-duration-300' %}
         {% endif %}
         <div class="">
           {{ card_product.featured_media | image_url: width: 900 | image_tag: loading: lazy, class: image_class }}
           {% if card_product.media[1] != blank %}
-            {{ card_product.media[1] | image_url: width: 900 | image_tag: loading: lazy, class: 'hidden group-hover:block object-cover aspect-square' }}
+            {{ card_product.media[1] | image_url: width: 900 | image_tag: loading: lazy, class: 'twcss-hidden group-hover:twcss-block twcss-object-cover twcss-aspect-square twcss-transition-all twcss-duration-300' }}
           {% endif %}
         </div>
       {% else %}
@@ -51,43 +51,36 @@
     </div>
     <div class="twcss-absolute twcss-top-4 twcss-left-4 card__badge">
       {%- if card_product.available == false -%}
-        <span
-            id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-            class="twcss-border twcss-border-brand-darkgrey twcss-bg-brand-red twcss-text-core-white twcss-px-4 twcss-py-2 twcss-uppercase"
-        >
-                {{- 'products.product.sold_out' | t -}}
-              </span>
+        <span id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}" class="twcss-border twcss-border-brand-red twcss-bg-brand-red twcss-text-core-white twcss-px-4 twcss-py-2 twcss-uppercase">
+          {{- 'products.product.sold_out' | t -}}
+        </span>
       {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
-        <span
-            id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-            class="twcss-border twcss-border-brand-darkgrey twcss-bg-brand-yellow twcss-text-brand-darkgrey twcss-px-4 twcss-py-2 twcss-uppercase"
-        >
-                {{- 'products.product.on_sale' | t -}}
-              </span>
+        <span id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}" class="twcss-border twcss-border-brand-yellow twcss-bg-brand-yellow twcss-text-core-white twcss-px-4 twcss-py-2 twcss-uppercase">
+          {{- 'products.product.on_sale' | t -}}
+        </span>
       {%- endif -%}
     </div>
     <div class="twcss-p-4 twcss-text-brand-midnight group-hover:twcss-text-brand-orange">
-      <h3 class="twcss-text-lg twcss-uppercase"> {{ card_product.title | escape }} </h3>
+      <h3 class="twcss-text-lg"> {{ card_product.title | escape }} </h3>
       {% if card_product.metafields.custom.area_per_pack > 0 %}
 
         {% if card_product.compare_at_price > card_product.price %}
-          <div>{{ card_product.price | divided_by: card_product.metafields.custom.area_per_pack | money }} <span class="twcss-text-red-500"><s>{{ card_product.compare_at_price | divided_by: card_product.metafields.custom.area_per_pack | money }}</s></span></div>
+          <div class="twcss-font-bold">{{ card_product.price | divided_by: card_product.metafields.custom.area_per_pack | money }} <span class="twcss-text-red-500"><s>{{ card_product.compare_at_price | divided_by: card_product.metafields.custom.area_per_pack | money }}</s></span></div>
         {% elsif card_product.price_varies == true %}
-          {%- comment -%}<div>from {{ card_product.price_min | divided_by: card_product.metafields.custom.area_per_pack | money }} to {{ card_product.price_max | divided_by: card_product.metafields.custom.area_per_pack | money }}</div>{%- endcomment -%}
-          <div>from {{ card_product.price_min | divided_by: card_product.metafields.custom.area_per_pack | money }}</div>
+          <div class="twcss-font-bold">from {{ card_product.price_min | divided_by: card_product.metafields.custom.area_per_pack | money }}</div>
         {% else %}
-          <div>{{ card_product.price | divided_by: card_product.metafields.custom.area_per_pack | money }}</div>
+          <div class="twcss-font-bold">{{ card_product.price | divided_by: card_product.metafields.custom.area_per_pack | money }}</div>
         {% endif %}
 
       {% else %}
 
         {% if card_product.compare_at_price > card_product.price %}
-          <div>{{ card_product.price |  money }} <span class="twcss-text-red-500"><s>{{ card_product.compare_at_price |  money }}</s></span></div>
+          <div class="twcss-font-bold">{{ card_product.price |  money }} <span class="twcss-text-red-500"><s>{{ card_product.compare_at_price |  money }}</s></span></div>
         {% elsif card_product.price_varies == true %}
           {% comment %}<div>from {{ card_product.price_min | money }} to {{ card_product.price_max | money }}</div>{% endcomment %}
-          <div>from {{ card_product.price_min | money }}</div>
+          <div class="twcss-font-bold">from {{ card_product.price_min | money }}</div>
         {% else %}
-          <div>{{ card_product.price |  money }}</div>
+          <div class="twcss-font-bold">{{ card_product.price |  money }}</div>
         {% endif %}
 
       {% endif %}

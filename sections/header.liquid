@@ -532,7 +532,7 @@
 -%}
 
 
-<div class="twcss-bg-brand-darkgrey" x-data="{ showMenu: false, showClearance: false }">
+<div class="twcss-bg-brand-darkgrey">
 	<div class="twcss-container lg:twcss-flex twcss-justify-between twcss-items-center">
 		<div class="twcss-py-4 twcss-hidden lg:twcss-block">
 			<a href="{{ shop.url }}">
@@ -667,7 +667,7 @@
 			</button>
 		</div>
 
-		<div class="twcss-hidden lg:twcss-flex twcss-container twcss-items-center twcss-justify-between">
+		<div class="twcss-hidden lg:twcss-flex twcss-container twcss-items-center twcss-justify-center">
 			<div class="" id="navbar-solid-bg">
 				<div class="twcss-flex twcss-bg-brand-darkgrey">
 
@@ -735,11 +735,7 @@
 					{%endfor%}
 				</div>
 			</div>
-			{% if section.settings.show-clearance == true %}
-				<div class="twcss-relative twcss-px-4 twcss-py-4 twcss-top-0 twcss-group twcss-overflow-hidden twcss-font-medium twcss-bg-brand-red hover:twcss-cursor-pointer hover:twcss-brightness-125" @click="showClearance = !showClearance">
-					<span class="twcss-relative twcss-text-core-white twcss-uppercase">Clearance</span>
-				</div>
-			{% endif %}
+
 		</div>
 		<div id="mobile-menu" class="twcss-inset-0 twcss-w-full twcss-mx-auto twcss-top-0 twcss-right-0 twcss-flex twcss-justify-end twcss-duration-300 twcss-transform twcss-fixed twcss-transition twcss-overflow-hidden -twcss-translate-y-full twcss-ease-out twcss-bg-brand-darkgrey twcss-bg-opacity-60" :class="{'twcss-translate-y-24 twcss-ease-in twcss-z-50':showMenu === true, '-twcss-translate-y-full twcss-ease-out':showMenu === false}">
 			<div class="twcss-w-full">
@@ -764,11 +760,6 @@
 			</div>
 		</div>
 	</nav>
-	<div x-cloak x-show="showClearance" x-transition.duration.300ms class="twcss-bg-brand-red">
-		<div class="twcss-container twcss-flex twcss-justify-center">
-			<a class="twcss-text-core-white twcss-py-4 hover:twcss-underline twcss-transition-all twcss-duration-300" href="{{ section.settings.clearance-banner-link }}">{{ section.settings.clearance-banner-text }}</a>
-		</div>
-	</div>
 </div>
 
 
@@ -828,22 +819,6 @@
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show-clearance",
-      "default": false,
-      "label": "Show Clearance Banner"
-    },
-    {
-      "type": "text",
-      "id": "clearance-banner-text",
-      "label": "Clearance Banner Text"
-    },
-    {
-      "type": "url",
-      "id": "clearance-banner-link",
-      "label": "Clearance Link"
     }
   ],
   "blocks": [

@@ -26,7 +26,22 @@
         <div class="twcss-grid twcss-grid-cols-1 md:twcss-grid-cols-2 lg:twcss-grid-cols-3 twcss-gap-4">
           {% for block in section.blocks %}
             {% assign product = block.settings.product %}
-            <div class="twcss-bg-white twcss-text-core-black">
+            <div class="twcss-bg-white twcss-text-core-black twcss-rounded-lg">
+
+
+              {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  image_shape: section.settings.image_shape,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  lazy_load: lazy_load,
+                  show_quick_add: section.settings.enable_quick_add,
+                  section_id: section.id
+              %}
+
+              {%- comment -%}
               <a href="{{ product.url }}">
                 <div class="twcss-aspect-square twcss-pb-2">
                   {{ product.featured_media | image_url: width: 900 | image_tag: loading: lazy, class: 'twcss-aspect-square twcss-object-cover' }}
@@ -41,7 +56,8 @@
                     <div class="twcss-text-base twcss-font-bold">{{ product.price | money }} <span class="twcss-text-xs twcss-font-light">{{ product.unit_price_measurement.quantity_value }}{{ product.unit_price_measurement.quantity_unit }}</span></div>
                   {% endif %}
                 </div>
-                </a>
+              </a>
+              {%- endcomment -%}
             </div>
           {% endfor %}
         </div>

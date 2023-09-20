@@ -1,10 +1,23 @@
 <div class="twcss-container {{ section.settings.padding_top }} {{ section.settings.padding_bottom }}">
-	<h2 class="twcss-text-xl twcss-font-black twcss-text-[24px] twcss-pb-4">{{ section.settings.heading }}</h2>
+	<h2 class="twcss-text-xl twcss-font-bold twcss-text-[24px] twcss-pb-4">{{ section.settings.heading }}</h2>
 	<div class="twcss-grid twcss-grid-cols-2 lg:twcss-grid-cols-4 twcss-gap-8">
 
 		{% for block in section.blocks  %}
 			{% assign product = block.settings.product %}
 			<div class="twcss-border twcss-border-gray-300 twcss-rounded-lg">
+
+				{% render 'card-product',
+						card_product: product,
+						media_aspect_ratio: section.settings.image_ratio,
+						image_shape: section.settings.image_shape,
+						show_secondary_image: section.settings.show_secondary_image,
+						show_vendor: section.settings.show_vendor,
+						show_rating: section.settings.show_rating,
+						lazy_load: lazy_load,
+						show_quick_add: section.settings.enable_quick_add,
+						section_id: section.id
+				%}
+				{%- comment -%}
 				<a href="{{ product.url }}">
 					<div class="twcss-aspect-square twcss-pb-2 twcss-rounded-t-lg">
 						{{ product.featured_media | image_url: width: 900 | image_tag: loading: lazy, class: 'twcss-aspect-square twcss-object-cover twcss-rounded-t-lg' }}
@@ -14,7 +27,8 @@
 						<div class="twcss-text-base twcss-font-bold twcss-pt-2 twcss-pb-4">{{ product.title }}</div>
 						<div class="twcss-text-base twcss-font-bold">{{ product.price | money }} <span class="twcss-text-xs twcss-font-light">{{ product.unit_price_measurement.quantity_value }}{{ product.unit_price_measurement.quantity_unit }}</span></div>
 					</div>
-					</a>
+				</a>
+				{%- endcomment -%}
 			</div>
 		{% endfor %}
 
