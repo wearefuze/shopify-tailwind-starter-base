@@ -1,20 +1,35 @@
 <section class="twcss-container {{ section.settings.padding_top }} {{ section.settings.padding_bottom }}">
-
-  <div class="twcss-grid twcss-grid-cols-{{ section.settings.columns_mobile }} lg:twcss-grid-cols-{{ section.settings.columns_desktop }} twcss-gap-8">
+  <div class="twcss-grid twcss-grid-cols-{{ section.settings.columns_mobile }} lg:twcss-grid-cols-{{ section.settings.columns_desktop }} twcss-gap-8 twcss-content-stretch">
     {%- for block in section.blocks -%}
       <div class="twcss-col-span-1">
         {%- if block.settings.link -%}
-          <a href="{{ block.settings.link }}" class="twcss-group">
+          {% if section.settings.link_style == "image" %}
+            <a href="{{ block.settings.link }}" class="twcss-group" title="{{ block.settings.link_label }}">
+              <div class="twcss-rounded-lg twcss-overflow-hidden twcss-transition-all twcss-duration-300" style="background-color: {{ block.settings.background_colour }}; color: {{ block.settings.text_colour }};">
+                {{
+                block.settings.image
+                | image_url: width: 3200
+                | image_tag:
+                loading: 'lazy',
+                widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+                sizes: sizes,
+                class: 'twcss-h-full twcss-w-full twcss-object-cover twcss-rounded-lg hover:twcss-scale-110 twcss-transition-all twcss-duration-300'
+                }}
+              </div>
+            </a>
+          {% else %}
             <div class="twcss-rounded-lg" style="background-color: {{ block.settings.background_colour }}; color: {{ block.settings.text_colour }};">
-              {{
-              block.settings.image
-              | image_url: width: 3200
-              | image_tag:
-              loading: 'lazy',
-              widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
-              sizes: sizes,
-              class: 'twcss-h-auto twcss-w-full twcss-object-contain twcss-rounded-t-lg'
-              }}
+              <div class="twcss-rounded-lg twcss-overflow-hidden twcss-transition-all twcss-duration-300" >
+                {{
+                block.settings.image
+                | image_url: width: 3200
+                | image_tag:
+                loading: 'lazy',
+                widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+                sizes: sizes,
+                class: 'twcss-h-full twcss-w-full twcss-object-cover twcss-rounded-lg hover:twcss-scale-110 twcss-transition-all twcss-duration-300'
+                }}
+              </div>
               <div class="twcss-flex twcss-justify-center">
                 <div class="twcss-py-8 twcss-text-center">
                   {%- if block.settings.title -%}
@@ -25,12 +40,13 @@
                       {{ block.settings.text }}
                     </div>
                   {%- endif -%}
-                  <button class="twcss-border-2 twcss-border-core-white twcss-rounded-lg twcss-text-core-white twcss-px-8 twcss-py-4 twcss-text-lg twcss-font-semibold twcss-bg-transparent group-hover:twcss-bg-core-white group-hover:twcss-text-core-black twcss-transition-all twcss-duration-300">{{ block.settings.link_label }}</button>
+                  <a href="{{ block.settings.link }}" class="twcss-group" title="{{ block.settings.link_label }}">
+                    <button class="twcss-border-2 twcss-border-core-white twcss-rounded-lg twcss-text-core-white twcss-px-8 twcss-py-4 twcss-text-lg twcss-font-semibold twcss-bg-transparent group-hover:twcss-bg-core-white group-hover:twcss-text-core-black twcss-transition-all twcss-duration-300">{{ block.settings.link_label }}</button>
+                  </a>
                 </div>
               </div>
             </div>
-
-          </a>
+          {% endif %}
         {%- else -%}
           {{
             block.settings.image
@@ -145,6 +161,22 @@
       "type": "url",
       "id": "button_link",
       "label": "t:sections.multicolumn.settings.button_link.label"
+    },
+    {
+      "type": "select",
+      "id": "link_style",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "button",
+          "label": "Button"
+        }
+      ],
+      "default": "image",
+      "label": "Link Style"
     },
     {
       "type": "select",

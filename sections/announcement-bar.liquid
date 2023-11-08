@@ -1,9 +1,8 @@
 {%- for block in section.blocks -%}
 
-  <div  class="twcss-hidden lg:twcss-block" x-data="{ showMenu: false, showClearance: false }">
+  <div  class="{% if block.settings.show-on-mobile %} twcss-block {% else %}twcss-hidden lg:twcss-block{% endif %}" x-data="{ showMenu: false, showClearance: false }">
     <div class="twcss-relative twcss-bg-black twcss-text-white twcss-text-sm">
       <div class="twcss-container twcss-flex twcss-justify-between twcss-items-center twcss-bg-black">
-
         <div>
           {% if block.settings.link %}
               <a href="{{ block.settings.link }}" {% if block.settings.external-link %} target="_blank" {% endif %} class="hover:twcss-underline">{{ block.settings.link-text }}</a>
@@ -14,9 +13,11 @@
           <div class="twcss-flex twcss-justify-end twcss-items-center">
 
             {% if block.settings.show-clearance == true %}
-              <div class="twcss-relative twcss-px-4 twcss-py-2 twcss-top-0 twcss-group twcss-overflow-hidden twcss-font-medium twcss-bg-brand-red hover:twcss-cursor-pointer hover:twcss-brightness-125" @click="showClearance = !showClearance">
-                <span class="twcss-relative twcss-text-core-white">Clearance</span>
-              </div>
+                <a href="{{ block.settings.clearance-banner-link }}">
+                  <div class="twcss-relative twcss-px-4 twcss-py-2 twcss-top-0 twcss-group twcss-overflow-hidden twcss-font-medium twcss-bg-brand-red hover:twcss-cursor-pointer hover:twcss-brightness-125">
+                    <span class="twcss-relative twcss-text-core-white">Clearance</span>
+                  </div>
+                </a>
             {% endif %}
             {% if block.settings.button-link %}
               <div class="">
@@ -28,11 +29,6 @@
           </div>
         </div>
 
-      </div>
-    </div>
-    <div x-cloak x-show="showClearance" x-transition.duration.300ms class="twcss-bg-brand-red">
-      <div class="twcss-container twcss-flex twcss-justify-center">
-        <a class="twcss-text-core-white twcss-py-4 hover:twcss-underline twcss-transition-all twcss-duration-300" href="{{ block.settings.clearance-banner-link }}">{{ block.settings.clearance-banner-text }}</a>
       </div>
     </div>
   </div>
@@ -48,6 +44,12 @@
       "type": "announcement",
       "name": "t:sections.announcement-bar.blocks.announcement.name",
       "settings": [
+        {
+          "type": "checkbox",
+          "id": "show-on-mobile",
+          "label": "Show on Mobile view",
+          "default": false
+        },
         {
           "type": "url",
           "id": "link",

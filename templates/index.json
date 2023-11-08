@@ -7,7 +7,7 @@
           "type": "slide",
           "settings": {
             "title_text": "Quality carpet and flooring in stock to take away today!",
-            "body_text": "Intense hatred of wine is called oenophobia. Oak imparts vanilla, toast, caramel and coffee. Some whites age better in stainless steel.",
+            "body_text": "We offer a vast selection of laminate flooring in a variety of colours, textures, and finishes. Whether you prefer a traditional wood-look laminate or a contemporary grey design, we have something to suit every taste and budget.",
             "slide_link": "shopify:\/\/collections\/laminate-flooring",
             "slide_link_text": "View Laminate Flooring"
           }
@@ -16,18 +16,18 @@
           "type": "slide",
           "settings": {
             "title_text": "Quality carpet and flooring in stock to take away today!",
-            "body_text": "Some wines are made from rotting grapes: Botrytis, or noble rot, makes good dessert wine.",
-            "slide_link": "shopify:\/\/collections\/accessories",
-            "slide_link_text": "View Accessories"
+            "body_text": "Engineered wood flooring brings that warmth and comfort into your home and consists of cross-ply layers glued on top of each other with a top layer of real wood",
+            "slide_link": "shopify:\/\/collections\/engineered-wood-flooring",
+            "slide_link_text": "View Engineered Flooring"
           }
         },
         "a880063c-c281-420c-af45-81d321b36592": {
           "type": "slide",
           "settings": {
             "title_text": "Quality carpet and flooring in stock to take away today!",
-            "body_text": "Pursing your lips and inhaling some air while the wine is still on your palate is also a nice way to spread the more complex flavors through your sinuses.",
-            "slide_link": "shopify:\/\/collections\/carpet",
-            "slide_link_text": "View Carpet"
+            "body_text": "Vinyl flooring is amongst the most popular and most practical flooring types available to you. You can easily transform any space with some cheap vinyl flooring without breaking the bank!",
+            "slide_link": "shopify:\/\/collections\/vinyl",
+            "slide_link_text": "View Vinyl Flooring"
           }
         }
       },
@@ -37,7 +37,9 @@
         "a880063c-c281-420c-af45-81d321b36592"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/banner.jpg"
+        "image": "shopify:\/\/shop_images\/banner.jpg",
+        "image_link_title": "Clearance",
+        "image_link": "shopify:\/\/collections\/clearance"
       }
     },
     "usps_block": {
@@ -56,7 +58,7 @@
           "settings": {
             "usp_icon": "shopify:\/\/shop_images\/usp-icon-van.svg",
             "usp_title": "Free national delivery",
-            "usp_text": "On orders over £250"
+            "usp_text": "On orders over £300"
           }
         },
         "dbf8876a-54e0-4c4b-86a6-ffdf14e1283e": {
@@ -102,8 +104,8 @@
             "text_colour": "#3c3c3c",
             "title": "",
             "text": "",
-            "link_label": "",
-            "link": ""
+            "link_label": "Shop LVT",
+            "link": "shopify:\/\/collections\/lvt"
           }
         },
         "template--18933691351313__27df1339-779c-4538-9048-9a8aa058906a-16845076596a122bd6-1": {
@@ -114,8 +116,8 @@
             "text_colour": "#3c3c3c",
             "title": "",
             "text": "",
-            "link_label": "",
-            "link": ""
+            "link_label": "Shop LVT",
+            "link": "shopify:\/\/collections\/lvt"
           }
         }
       },
@@ -129,29 +131,18 @@
         "title": "",
         "columns_desktop": 2,
         "column_alignment": "left",
-        "button_link": "",
+        "button_link": "shopify:\/\/collections\/lvt",
+        "link_style": "image",
         "columns_mobile": "1"
       }
     },
     "2321a3a9-0cb0-452e-a23e-6e9989a4fc72": {
       "type": "favourite-products",
       "blocks": {
-        "0af3400a-6421-4e1c-b1ab-74236bb9e10b": {
-          "type": "column",
-          "settings": {
-            "product": "wheaton-twist"
-          }
-        },
         "dd934869-abc1-43a7-917b-5459219a2506": {
           "type": "column",
           "settings": {
-            "product": "zeezoo-straight-plank"
-          }
-        },
-        "10755dba-1776-4989-82b7-7a5d403fe52c": {
-          "type": "column",
-          "settings": {
-            "product": "serendipity"
+            "product": "olympious"
           }
         },
         "4ff2b955-6aca-4be6-9771-430122bb7cc9": {
@@ -159,13 +150,25 @@
           "settings": {
             "product": "rustic-textures"
           }
+        },
+        "70db41bd-0a13-4ae3-a868-a0e84db6ea3d": {
+          "type": "column",
+          "settings": {
+            "product": "5-5mm-q-mark-plywood-hardwood"
+          }
+        },
+        "59b6cfa0-3f6f-434b-aa26-b041a4f9e818": {
+          "type": "column",
+          "settings": {
+            "product": "4mm-cement-faced-tile-backer-board"
+          }
         }
       },
       "block_order": [
-        "0af3400a-6421-4e1c-b1ab-74236bb9e10b",
         "dd934869-abc1-43a7-917b-5459219a2506",
-        "10755dba-1776-4989-82b7-7a5d403fe52c",
-        "4ff2b955-6aca-4be6-9771-430122bb7cc9"
+        "4ff2b955-6aca-4be6-9771-430122bb7cc9",
+        "70db41bd-0a13-4ae3-a868-a0e84db6ea3d",
+        "59b6cfa0-3f6f-434b-aa26-b041a4f9e818"
       ],
       "settings": {
         "heading": "Flooring loved by our customers",
@@ -176,12 +179,6 @@
     "b9ffc1e4-0d47-4510-b507-549f647e679d": {
       "type": "sale-products",
       "blocks": {
-        "e4e915d7-c826-404a-8b58-fad0f0c7f065": {
-          "type": "column",
-          "settings": {
-            "product": "satino-exquisite"
-          }
-        },
         "5ac60a67-56be-4dd6-b5a4-aa01c3277673": {
           "type": "column",
           "settings": {
@@ -193,12 +190,18 @@
           "settings": {
             "product": "rustic-textures-parquet"
           }
+        },
+        "d43a3c2a-b9d8-40af-b2e2-8ef361602782": {
+          "type": "column",
+          "settings": {
+            "product": "wheaton-twist"
+          }
         }
       },
       "block_order": [
-        "e4e915d7-c826-404a-8b58-fad0f0c7f065",
         "5ac60a67-56be-4dd6-b5a4-aa01c3277673",
-        "d84734f1-86a7-49cc-a56f-d88af025deff"
+        "d84734f1-86a7-49cc-a56f-d88af025deff",
+        "d43a3c2a-b9d8-40af-b2e2-8ef361602782"
       ],
       "settings": {
         "padding_top": "twcss-pt-16",
@@ -216,7 +219,7 @@
         "padding_bottom": "twcss-pb-0",
         "title": "Keep your feet toasty with underfloor heating",
         "body": "Whilst electric underfloor heating systems use electrical cables to pass energy through and generate heat, water systems use a connected.",
-        "link": "shopify:\/\/pages\/contact",
+        "link": "shopify:\/\/collections\/under-floor-heating",
         "linktext": "View Options",
         "feature_image": "shopify:\/\/shop_images\/shutterstock_1578545284.jpg"
       }
@@ -231,9 +234,9 @@
             "background_colour": "#3c3c3c",
             "text_colour": "#ffffff",
             "title": "Full supply and fit service <strong>FREE<\/strong> home measure",
-            "text": "<p>Whilst electric underfloor heating systems use electrical cables to pass energy through and generate he<\/p>",
+            "text": "",
             "link_label": "Discover More",
-            "link": "shopify:\/\/collections\/under-floor-heating"
+            "link": "shopify:\/\/pages\/contact"
           }
         },
         "template--18933691351313__b117d7bb-bb89-49e2-bb5e-404284dadeca-1686826549f71c7d2a-1": {
@@ -243,7 +246,7 @@
             "background_colour": "#9ab7c4",
             "text_colour": "#3c3c3c",
             "title": "Visit our showroom with online prices, based in Witham",
-            "text": "<p>Whilst electric underfloor heating systems use electrical cables to pass energy through and generate he<\/p>",
+            "text": "",
             "link_label": "Get directions",
             "link": "shopify:\/\/pages\/contact"
           }
@@ -260,6 +263,7 @@
         "columns_desktop": 2,
         "column_alignment": "left",
         "button_link": "",
+        "link_style": "button",
         "columns_mobile": "1"
       }
     }

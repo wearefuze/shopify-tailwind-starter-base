@@ -16,12 +16,12 @@
 
 <a {% if card_collection == blank %} role="link" aria-disabled="true" {% else %} href="{{ card_collection.url }} {% endif %}" class="twcss-group">
   <div class="twcss-border twcss-rounded-lg group-hover:twcss-border-brand-blue">
-    <div class="twcss-relative twcss-aspect-square twcss-w-full overflow-hidden twcss-rounded-t-lg twcss-h-full">
+    <div class="twcss-relative twcss-aspect-square twcss-w-full overflow-hidden twcss-rounded-lg twcss-h-full">
       {% if card_collection.featured_image %}
         <img src="/{{ card_collection.featured_image |  image_url: width: 450 }}" class="twcss-w-full twcss-h-auto twcss-object-center group-hover:twcss-scale-110 twcss-transition-all twcss-duration-300">
         <div class="twcss-absolute twcss-bottom-0 twcss-h-16 twcss-bg-core-white twcss-w-full twcss-flex twcss-items-center twcss-justify-center">
-          <div>
-            <span class="twcss-text-xl twcss-border-b twcss-border-transparent group-hover:twcss-border-core-black twcss-transition-all twcss-duration-300">
+          <div class="twcss-text-center twcss-px-4 twcss-leading-tight">
+            <span class="twcss-text-lg">
               {%- if card_collection.title != blank -%}
                 {{- card_collection.title | escape -}}
               {%- else -%}

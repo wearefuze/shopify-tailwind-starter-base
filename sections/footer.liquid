@@ -133,9 +133,9 @@
     </div>
   </div>
 
-  <div class="twcss-container twcss-flex twcss-justify-between twcss-border-t twcss-mt-16 twcss-pt-4 twcss-pb-8">
+  <div class="twcss-container lg:twcss-flex twcss-justify-between twcss-border-t twcss-mt-16 twcss-pt-4 twcss-pb-8">
     <div class="twcss-min-w-fit">
-      <div class="twcss-flex twcss-justify-start twcss-divide-x">
+      <div class="lg:twcss-flex twcss-justify-start lg:twcss-divide-x">
         {%- for policy in shop.policies -%}
           {%- if policy != blank -%}
             <div class="twcss-px-2 twcss-min-w-fit twcss-text-gray-400">
@@ -150,11 +150,11 @@
         </div>
       </div>
     </div>
-    <div class="footer__column footer__column--info">
+    <div class="twcss-min-w-fit">
       {%- if section.settings.payment_enable -%}
         <div class="footer__payment">
           <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
-          <ul class="list list-payment" role="list">
+          <ul class="listxx list-paymentxx twcss-flex twcss-justify-start lg:twcss-justify-center" role="list">
             {%- for type in shop.enabled_payment_types -%}
               <li class="list-payment__item">
                 {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}

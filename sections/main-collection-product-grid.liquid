@@ -89,7 +89,7 @@
         {{ 'component-facets.css' | asset_url | stylesheet_tag }}
         <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
         {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
-          <div class="twcss-col-span-1 lg:twcss-col-span-2">
+          <div class="twcss-col-span-2">
             <aside
               aria-labelledby="verticalTitle"
               class="facets-wrapperxx twcss-col-span-2"
@@ -142,7 +142,7 @@
                     {%- assign lazy_load = true -%}
                   {%- endif -%}
                   <li
-                    class="twcss-col-span-1 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                    class="twcss-col-span-1 twcss-border twcss-rounded-lg {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                     {% if settings.animations_reveal_on_scroll %}
                       data-cascade
                       style="--animation-order: {{ forloop.index }};"

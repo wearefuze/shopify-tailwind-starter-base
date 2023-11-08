@@ -18,6 +18,10 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   }
 
   summary.addEventListener('click', (event) => {
+    var menuItems = document.getElementsByTagName('details')
+    for(var i = 0; i < menuItems.length; i++){
+      menuItems[i].removeAttribute('open')
+    }
     event.currentTarget.setAttribute(
       'aria-expanded',
       !event.currentTarget.closest('details').hasAttribute('open'),

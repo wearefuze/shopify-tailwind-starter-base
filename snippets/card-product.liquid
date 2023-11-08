@@ -29,7 +29,7 @@
     class="full-unstyled-link"
     aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
 >
-  <div class="twcss-relative twcss-border twcss-rounded-lg card-wrapper product-card-wrapper underline-links-hover">
+  <div class="twcss-relative twcss-rounded-lg card-wrapper product-card-wrapper underline-links-hover">
 
     <div class="twcss-aspect-square twcss-w-full twcss-overflow-hidden twcss-bg-gray-100 group-hover:twcss-opacity-75 twcss-group twcss-rounded-t-lg">
       {% if card_product.featured_media %}
@@ -49,13 +49,13 @@
         </div>
       {% endif %}
     </div>
-    <div class="twcss-absolute twcss-top-4 twcss-left-4 card__badge">
+    <div class="twcss-absolute twcss-top-4 twcss-left-2 card__badge">
       {%- if card_product.available == false -%}
         <span id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}" class="twcss-border twcss-border-brand-red twcss-bg-brand-red twcss-text-core-white twcss-px-4 twcss-py-2 twcss-uppercase">
           {{- 'products.product.sold_out' | t -}}
         </span>
       {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
-        <span id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}" class="twcss-border twcss-border-brand-yellow twcss-bg-brand-yellow twcss-text-core-white twcss-px-4 twcss-py-2 twcss-uppercase">
+        <span id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}" class="twcss-border twcss-rounded-md twcss-border-brand-red twcss-bg-brand-red twcss-text-core-white twcss-px-4 twcss-py-2 twcss-uppercase">
           {{- 'products.product.on_sale' | t -}}
         </span>
       {%- endif -%}

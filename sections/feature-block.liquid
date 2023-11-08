@@ -1,15 +1,15 @@
 <div class="twcss-container {{ section.settings.padding_top }} {{ section.settings.padding_bottom }}">
-  <div class="twcss-rounded-lg twcss-bg-brand-darkgrey twcss-grid twcss-grid-cols-1 md:twcss-grid-cols-2 lg:twcss-grid-cols-3 ">
-    <div class="twcss-col-span-1 twcss-flex twcss-items-center twcss-justify-center">
-      <div class="twcss-text-white twcss-px-16">
+  <div class="twcss-rounded-lg twcss-bg-brand-darkgrey twcss-grid twcss-grid-cols-1 md:twcss-grid-cols-2 lg:twcss-grid-cols-3">
+    <div class="twcss-col-span-1 twcss-flex twcss-items-center twcss-justify-center twcss-p-8">
+      <div class="twcss-text-white">
         <div class="twcss-text-3xl">{{ section.settings.title }}</div>
         <div class="twcss-text-md twcss-pt-4 twcss-pb-8">{{ section.settings.body }}</div>
-        <div class="twcss-pt-4">
+        <div class="twcss-pt-4 twcss-pb-4">
           <a class="twcss-border-2 twcss-rounded-md twcss-px-12 twcss-py-4 twcss-font-bold hover:twcss-bg-white hover:twcss-text-brand-darkgrey" href="{{ section.settings.link }}">{{ section.settings.linktext }}</a>
         </div>
       </div>
     </div>
-    <div class="twcss-col-span-1 lg:twcss-col-span-2">
+    <div class="twcss-col-span-1 md:twcss-col-span-1 lg:twcss-col-span-2">
       {{
       section.settings.feature_image
       | image_url: width: 3200
@@ -17,7 +17,7 @@
       loading: 'lazy',
       widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
       sizes: sizes,
-      class: 'h-auto w-full object-contain'
+      class: 'twcss-h-full twcss-w-full twcss-object-cover'
       }}
     </div>
   </div>

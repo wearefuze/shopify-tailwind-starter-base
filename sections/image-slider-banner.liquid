@@ -1,7 +1,9 @@
 <section id="hero" class="twcss-bg-cover">
-	<div class="twcss-relative twcss-grid twcss-grid-cols-1 md:twcss-grid-cols-2 twcss-mx-auto">
+	<div class="twcss-relative twcss-grid twcss-grid-cols-1 lg:twcss-grid-cols-2 twcss-mx-auto twcss-min-h-[36rem]">
 		<div class="twcss-col-span-1">
-			<img class="twcss-h-full twcss-w-full twcss-object-cover" src="{{ section.settings.image | img_url:'900x' }}">
+			<a href="{{ section.settings.image_link.url }}" title="{{ section.settings.image_link_title }}">
+				<img class="twcss-h-full twcss-w-full twcss-object-cover" src="{{ section.settings.image | img_url:'900x' }}">
+			</a>
 		</div>
 		<div class="twcss-col-span-1 twcss-text-core-black twcss-bg-brand-blue">
 			{% assign length = section.blocks | size %}
@@ -16,7 +18,9 @@
 								<div class="twcss-text-4xl">{{ block.settings.title_text }}</div>
 								<div class="twcss-py-8">{{ block.settings.body_text }}</div>
 								<div>
-									<button class="twcss-p-4 twcss-border-2 twcss-rounded-md twcss-border-core-white">{{ block.settings.slide_link_text }}</button>
+									<a href="{{ block.settings.slide_link }}">
+										<button class="twcss-p-4 twcss-border-2 twcss-rounded-md twcss-border-core-white">{{ block.settings.slide_link_text }}</button>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -77,6 +81,16 @@
       "type": "image_picker",
       "id": "image",
       "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "image_link_title",
+      "label": "Image link title text"
+    },
+    {
+      "type": "url",
+      "id": "image_link",
+      "label": "Image Link"
     }
   ],
   "max_blocks": 5,

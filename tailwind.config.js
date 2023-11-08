@@ -36,7 +36,7 @@ module.exports = {
       },
     },
     color: {
-      black: '#000000',
+      black: '#000000'
     },
   },
   plugins: [require('@tailwindcss/forms')],
